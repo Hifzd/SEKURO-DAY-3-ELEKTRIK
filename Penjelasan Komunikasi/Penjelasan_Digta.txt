@@ -1,0 +1,18 @@
+Macam-Macam Komunikasi
+1. I2C
+I2C merupakan protokol pada komunikasi serial yang sering digunakan dalam komunikasi jarak dekat. I2C memberikan pengguna jenis protokol komunikasi yang sederhana dan stabil antara mikrokontroler dan perangkat periferalnya. Protokol I2C terdiri dari dua jalur, yaitu SDA (Serial Data Line) dan SCL (Serial Clock Line) yang merupakan jalur bus komunikasi dua arah. Karakteristik dari sistem komunikasi ini adalah kemampuannya untuk dapat menghubungkan berbagai perangkat periferal dalam suatu sistem.
+
+2. SPI
+SPI merupakan bus interface  yang umum digunakan untuk mengirim data antara mikrokontroler dengan perangkat periferal kecil seperti shift register, sensor, dan SD cards. Data yang dikirim main atau subnode tersinkronisasi pada rising matau falling clock. Selain itu, kedua main dan subnode dapat mentransfer data secara bersamaan. Umumnya, interface SPI dapat terdiri dari 3-wire atau 4-wire. Masing-masing wire 
+
+3. UART (Universal Asynchronous Receiver/Transmitter)
+UART merupakan protokol atau sebuah set aturan untuk pertukaran data antara dua perangkat. UART merupakan salah satu jenis protokol yang sangat sederhana karena hanya menggunakan dua jalur/kabel antara transmitter (TX) dan receiver (RX) pada kedua arah. Sesuai namanya, protokol UART mentransfer data tanpa adanya clock bersama. Hal ini dapat dimungkinkan karena protokol ini menggunakan start bit, stop bit, dan data bit untuk menyusun byte data.
+
+4. USART (Universal Synchronous Asynchronous Receiver/Transmiter)
+USART adalah perangkat keras yang mendukung baik komunikasi secara asinkron (UART) maupun secara sinkron (mirip seperti SPI) dan umum digunakan pada mikrokontroler untuk komunikasi serial.
+
+5. CAN (Controller Area Network)
+CAN merupakan standar bus komunikasi yang sering digunakan pada kendaraan dan dirancang khusus sehingga mikrokontroler dan perangkat periferal dapat saling berkomunikasi tanpa komputer host.
+
+6. LIN (Local Interconnect Network)
+Sama seperti CAN, LIN merupakan salah satu bus komunikasi yang umum digunakan pada kendaraan. Perbedaan yang mendasari kedua jenis protokol ini adalah node-nya. Pada CAN, tiap node dapat mengakses bus mana saja pada suatu waktu. Sedangkan LIN sendiri merupakan protokol berbasis komunikasi master-slave yang memungkinkan satu master node berkomunikasi sampai dengan 15 slave nodes. Selain itu, LIN dirancang dengan lebih sederhana daripada CAN.
