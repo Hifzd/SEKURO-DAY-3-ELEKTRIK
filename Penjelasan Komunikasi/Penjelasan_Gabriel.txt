@@ -1,0 +1,34 @@
+Macam-macam komunikasi
+
+1). SPI (Serial Peripheral Interface)
+    Protokol komunikasi serial sinkron yang menghubungkan mikrontroler (Master) dengan berbagai perangkat yang menerima data/ instruksi 
+    seperti sensor atau display (Slave). 
+    Karakteristik : Pengirim dan penerima independen (Full duplex) , Antar muka 3 hingga 4 kabel, dapat disinkronkan, dan komunikasi satu- 
+    master-multi-slave.
+
+2). I2C (Inter-Integrated Circuit)
+    Protokol komunikasi serial dengan 2 kabel yang menghubungkan mikronkontroler dan perangkat periferal.
+    Karakteristik : Hanya menggunakan dua kabel, Terdapat star dan stop bit, dan kecepatan transfef lebih lambat dari SPI.
+
+3)  UART (Universal Asynchronous Receiver Transmitter)
+    Protokol komunikasi serial asinkron yang memungkinkan host berkomunikasi dengan perangkat tambahan dengan kecepepatan yang dapat 
+    dikonfigurasi.
+    Karakteristik : Trasmisi data serial bit-per-bit dan terdapat dua jalur data TX (pengirim) dan RX (Penerima).
+
+4) CAN (Controler Area Network)
+   Standar bus kendaraan yang memungkinkan mikrokontroler berkomunikasi dengan perangkat tanpa komputer host.
+   Karakteristik : Dikhususkan untuk otomotif dan industri, mode half-duplex, dan kemampuan komunikasi handal serta serta real-time.
+
+5) Modbus
+   protokol komunikasi seriali untuk pertukaran informasi antara perangkat elektronik.
+   Karakteristik : Komunikasi master-slave, mendukung variasi protokol, dan umum digunakan dalam otomasi industri.
+
+6) HTTP (Hypertext Transfer Protocol)
+   Protokol komunikasi dalam robotika untuk mengakses dan mengontrol robot melalui antarmuka web.
+   Karakteristik : antar muka web.
+
+7) ROS (Robot Operating System)
+   Protokol komunikasi antar-node menggunakan konsep topik (topics), layanan (services), dan aksi (actions).
+   Karakteristik : Open source.
+
+
