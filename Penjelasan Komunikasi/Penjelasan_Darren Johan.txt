@@ -1,0 +1,9 @@
+Isi penjelasan kalian disini gess
+Jangan lupa untuk merubah judul file ini menjadi Penjelasan_[Nama].txt yaaa (tanpa [])
+///
+
+Terdapat banyak macam protokol komunikasi diantaranya,
+1. SPI (Serial Peripheral Interface): Metode bus sinkron menggunakan 3-4 kabel (SCK "clock" untuk sinkron kedua perangkat, SS "slave select" untuk memilih perangkat mana yang dikirim data oleh master, MOSI "Master Output Slave Input" , MISO "Master input Slave Output") Cenderung lebih cepat daripada I2C
+2.I2C (Inter-Integrated Circuit) : Metode bus serial dua kabel (SDA "serial data" kabel data, SCL "serial clock" kabel data clock untuk sinkronisasi) Pengiriman datanya memiliki Address frame untuk menunjukan tujuan perangkat data
+3.UART (Universal Asynchronous Receiver/Transmitter) : Bus serial dengan 3 kabel (RX, Tx dan Gnd) Sering dipakai dengan mikrokontroller, karena memungkinkan komunikasi jarak jauh, tidak ada master dan slave dalam komunikasinya
+4.CAN (Controlled Area Network) : Standard bus multi master multi slave, sering digunakan dalam bidang otomotif. Secara teori dihubungkan dengan node sebanyak mungkin, namun secara praktis hanya terikat oleh perangkat transceiver yang digunakan. 
