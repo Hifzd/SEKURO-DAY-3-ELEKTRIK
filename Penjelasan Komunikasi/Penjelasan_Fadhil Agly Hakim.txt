@@ -1,0 +1,119 @@
+KOMUNIKASI
+- komunikasi yang dimaksud pada penjelasan kali ini adalah komunikasi yang digunakan untuk menghubungkan informasi antar perangkat yang digunakan
+- ada beberapa macam komunikasi yang bisa digunakan, yaitu
+1. I2C ( Inter-Integrated Circuit)
+2. SPI (Serial Peripheral Interface)
+3. UART (Universal Asynchronous Reception and Transmission)
+4. CAN (Controller Area Network)
+- berikut adalah penjelasan dari masing-masing jenis komunikasi:
+
+1. I2C (Inter-Integrated Circuit)
+-> I2C adalah bus serial yang dikembangkan oleh PHILIPS yang digunakan untuk menghubungkan mikrokontroler dengan perangkat yang terhubung kepadanya.
+-> bus serial adalah jalur komunikasi yang digunakan untuk menghubungkan 2 perangkat atau lebih untuk mengirimkan data dengan format serial, yaitu satu bit data pada satu waktu.
+-> I2C terdiri dari 2 saluran, yaitu:
+    1. SDA (Serial Data Line), digunakan untuk mengirim atau menerima data.
+    2. SCL (Serial Clock Line), digunakan untuk mengirim sinyal clock yang mengatur timing komunikasi antar perangkat yang terhubung.
+-> Ada dua jenis perangkat dalam I2C:
+    1. Master, adalah perangkat yang memulai dan mengakhiri transfer data
+    2. Slave, adalah perangkat yang menerima data dari master atau mengirim data ke master
+-> I2C adalah bus multi-master, artinya perangkat apapun dapat bekerja sebagai master dan mengontrol bus (jalur komunikasi antar 2 perangkat)
+-> Setiap perangkat di bus memiliki alamat yang unik dan sesuai kemampuannya masing-masing, mereka dapat berfungsi sebagai penerima atau pemancar data.
+
+2. SPI (Serial Peripheral Interface)
+-> SPI adalah metode bus serial sinkron yang diusulkan oleh MOTOROLA
+-> SPI adalah bus serial dengan kecepatan tinggi yang menggunakan 3 hingga 4 kabel untuk berkomunikasi
+-> pengiriman dan penerimaan bersifat independen dan dapat disinkronkan 
+-> komunikasi SPI dapat dilakukan dalam dua arah bersamaan (full-duplex)
+-> SPI sering digunakan dalam instrumen cerdas dan pengukuran, serta sistem kontrol yang terdiri dari komputer mikro chip tunggal karena dalam metode ini terdapat beberapa keuntungan
+-> Keuntungan tersebut adalah perangkat kerasnya yang kuat dan dapat menghemat port I/O (input output) serta meningkatkan jumlah periferal (perangkat yang terhubung) dan kinerja sistem 
+-> bus SPI terdiri dari 4 baris, yaitu:
+    1. SCK (Serial Clock Line), pin ini digunakan untuk sinkronisasi data
+    2. MISO (Master Input Slave Output), pin ini digunakan untuk mengirimkan data dari master ke slave
+    3. MOSI (Master Output Slave Input), pin ini digunakan untuk mengirimkan data dari salve ke master 
+    4. SS (Slave Select), pin ini digunakan untuk memilih perangkat slave yang akan diajak berkomunikasi
+-> tadi disebutkan bahwa bus SPI bisa hanya memiliki 3 kabel
+-> kondisi tersebut dapat terjadi ketika perangkat slave yang ada hanya ada 1 perangkat sehingga tidak membutuhkan pin SS untuk memilih perangkat slave
+-> prinsip kerja SPI adalah sebagai berikut:
+    1. Master mengirimkan sinyal clock kepada slave
+    2. Master mengirimkan data ke slave melalui pin MOSI
+    3. Master menerima data dari slave melalui pin MISO
+    4. Proses berulang hingga seluruh data telah tekirim 
+
+3. UART (Universal Asynchronous Reception and Transmission)
+-> UART adalah port serial asinkron yang digunakan untuk komunikasi dua arah antara dua perangkat elektronik.
+-> UART adalah komponen keras dengan komunikasi serial asinkron, yang berarti data dikirimkan bit demi bit tanpa sinyal clock terpisah.
+-> UART terdiri dari 3 komponen utama, yaitu
+    1. Transmitter, komponen ini bertanggung jawab untuk mengirimkan data dari satu perangkat ke perangkat lainnya.
+    2. Receiver, komponen ini bertanggung jawab untuk menerima data dari satu perangkat ke perangkat lainnya.
+    3. Generator baud rate: komponen ini bertanggung jawab untuk menghasilkan baud rate yang diinginkan (baud rate yang dihasilkan sama dengan baud rate transmisi).
+-> Data yang dikirimkan melalui UART biasanya berupa data biner, yaitu data yang terdiri dari bit-bit 0 dan 1.
+-> Data tersebut direpresentasikan dalam format tertentu, yaitu:
+    1. Start bit, bit ini digunakan untuk menandakan awal dari sebuah data frame
+    2. Data bits, bit-bit ini digunakan untuk menyimpan data yang sebenarnya
+    3. Parity bit, bit ini digunakan untuk mendetekse kesalahan pengiriman data
+    4. Stop bit, bit ini digunakan untuk menandakan akhir dari sebuah data frame
+-> UART juga memiliki beberapa parameter lain yang digunakan, yaitu:
+    1. Baud rate, adalah kecepatan transmisi data, dinyatakan dalam bit per second
+    2. Flow control, adalah mekanisme untuk mengendalikan aliran data antara dua perangkat
+-> UART juga memiliki beberapa kelebihan, yaitu:
+    - Sederhana dan mudah digunakan
+    - Mampu digunakan pada berbagai aplikasi
+    - Memiliki kecepatan yang cukup untuk berbagai aplikasi
+-> FUNGSI UART <-
+-> UART adalah chip yang digunakan untuk mengontroil komputer dan perangkat serial.
+-> satu hal yang perlu diperhatikan adalah ia menyediakan antarmuka perangkat terminal data RS-232C sehingga komputer dapat berkomunikasi dengan modem atau perangkat lain yang menggunakan antarmuka RS-232C.
+-> selain itu ada beberapa fungsi lainnya, yaitu:
+    1. DMengkonversi data paralel menjadi data serial
+    2. Mengkonversi data serial menjadi data paralel
+    3. Menambahkan bit paritas
+    4. Menambahkan tanda mulai-berhenti
+    5. Menambahkan sinyal interupsi
+    6. Mengelola sinkronisasi
+-> beberapa UART kelas atas juga menyediakan buffer untuk data masukan dan keluaran.
+-> UART kelas atas memiliki kelebihan, yaitu adanya buffer dan kecepatan yang lebih tinggi
+-> UART yang lebih baru adalah 16550 yang dapat menyimpan 16 byte data di buffer sebelum komputer perlu memproses data
+-> UART biasa adalah 8250
+
+4. CAN (Controller Area Network)
+-> CAN adalah standar komunikasi data yang digunakan untuk menghubungkan berbagai perangkat elektronik dalam sebuah sistem.
+-> CAN memiliki berbagai keunggulan, seperti kecepatan transmisi data yang tinggi, kehandalan yang tinggi, dan fleksibilitas.
+-> CAN dapat digunakan di berbagai bidang, termasuk industri otomotif, otomasi industri, otomasi bangunan, dan sistem kontrol non-industri.
+-> Topologi komunikasi CAN adalah topologi bus yang berarti semua perangkat yang terhubung ke jaringan berbagai jalur komunikasi yang sama.
+-> Fungsi komunikasi CAN adalah untuk mengirim dan menerima data antara berbagai perangkat
+-> CAN juga dapat digunakan untuk mengontrol dan memantau sistem, mengumpulkan data sensor, dan mengirim perintah.
+-> Karakteristik komunikasi CAN adalah kecepetan transmisi data yang tinggi, kehandalan yang tinggi, dan fleksibilitas
+-> CAN bus memiliki beberapa fitur, yaitu:
+    1. Dapat bekerja dalam mode multi-master
+    2. Node pada jaringan dapat dibagi menjadi beberapa prioritas berbeda untuk memenuhi kebutuhan waktu nyata yang berbeda
+    3. Mekanisme struktur bus arbitrase bit non-destruktif diadopsi
+    4 Data dapat diterima dalam beberapa mode transmisi: point-to-point, point-to-multipoint dan siaran global.
+    5 Jarak komunikasi langsung maksimum bisa mencapai 10km (kecepatan di bawah 4Kbps).
+    6 Kecepatan komunikasi dapat mencapai hingga 1MB / s (jarak terjauh saat ini adalah 40m).
+
+5. SDIO (Secure Digital Input/Output)
+-> SDIO adalah antarmuka yang memungkinkan perangkat untuk berkomunikasi dengan kartu SD atau perangkat yang mendukung antarmuka SDIO.
+-> SDIO dapat digunakan untuk berbagai aplikasi, termasuk
+    1. Menambahkan fungsionalitas baru ke perangkat (Wi-Fi, bluetooth, GPS)
+    2. Meningkatkan kinerja perangkat, seperti menambahkan kartu memori yang lebih cepat.
+    3. Menyediakan komunikasi yang lebih aman, seperti dengan menggunakan kartu SD yang terenkripsi
+-> SDIO menggunakan protokol komunikasi yang mirip dengan protokol kartu SD
+-> Protokol tersebut menggunakan perintah untuk melakukan operasi, seperti membaca data dari kartu atau menulis data ke kartu
+-> berikut adalah beberapa perintah SDIO yang umum:
+    1. CMD52: Meminta informasi tentang perangkat
+    2. CMD53: Menentukan kecepatan kartu
+    3. CMD55: Mengaktifkan atau menonaktifkan fungsionalitas SDIO
+-> Bedanya dengan kartu SD adalah SDIO mendukung dua kecepatan, yaitu rendah dan tinggi
+-> Kartu kecepatan rendah dirancang untuk perangkat dengan persyaratan perangkat keras yang minimal, seperti modem atau pemindai kode batang
+-> Kartu kecepatan tinggi dirancang untuk perangkat yang membutuhkan kinerja yang lebih tinggi, seperti kartu jaringan atau kartu TV
+-> SDIO menggunakan konektor micro SD
+-> konektor tersebut memiliki 8 pin yang digunakan untuk menghubungkan perangkat ke kartu SD atau perangkat yang mendukung antarmuka SDIO
+
+
+
+  
+
+
+
+
+
+
