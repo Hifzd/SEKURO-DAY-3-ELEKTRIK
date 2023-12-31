@@ -1,0 +1,36 @@
+KOMUNIKASI
+1.	I2C (Inter-Integrated Circuit)
+I2C digunakan dalam komunikasi jarak pendek dan kecepatan transfer lebih lama. Bus serial dua kabel(SDA dan SCL) untuk menghubungkan mikrokontroler dan perangkat periferal. I2C mentransfer informasi antara bus dan perangkat, komunikasi serial antara mikrokontroler dan perangkat eksternal, atau transfer data dua arah antara perangkat master dan perangkat pendukung. I2C adalah bus multi-master, sehingga perangkat apa pun dapat bekerja seperti master dan mengontrol bus. Banyak digunakan pada layar LCD ponsel, film tipis kabel, dan layar sentuh.
+
+2.	SPI(Serial Peripheral Interface)
+SPI digunakan dalam komunikasi jarak pendek.Metode bus serial antarmuka menggunakan tiga hingga empat kabel dengan pengiriman dan penerimaan indepennya dapat disinkronkan. Banyak digunakan  karena perangkat kerasnya yang kuat.
+Bus SPI terdiri dari tiga jalur : serial clock (SCLK), serial data output (SDO), dan serial data input (SDI). Jika hanya perangkat master yang direalisasikan, port keluaran sudah cukup; jika hanya perangkat pendukung yang direalisasikan, hanya port input yang diperlukan.
+
+3.	UART (Universal Asynchronous Reception and Transmission)
+UART adalah chip yang digunakan untuk mengontrol komputer dan perangkat serial dengan jarak yang jauh. Memungkinkan host berkomunikasi dengan perangkat tambahan yang mendukung transmisi data serial, asinkron, dan dua arah. UART memiliki dua jalur data untuk mengirim (TX) dan menerima (RX) berguna untuk berkomunikasi melalui pin digital 0 dan pin digital 1. UART yang lebih baru adalah 16550, yang dapat menyimpan 16 byte data di buffer sebelum komputer perlu memproses data.
+
+4.	CAN(Controller Area Network)
+Dapat berkomunikasi satu sama lain dengan aplikasi tanpa komputer host. CAN berbasis pesan dengan node yang tak terhitung yang dirancang untuk aplikasi otomotif seperti otomatisasi industri dan peralatan medis. Selain itu, fitur verifikasi kesalahan perangkat keras juga meningkatkan kemampuan CAN untuk menahan interferensi elektromagnetik.
+
+5.	I2S(Inter-IC Sound Bus)
+Bus yang mentransmisikan data audio antar perangkat audio digital menggunakan tiga kabel. Digunakan dalam mengirimkan sinyal audio Seperti STB, DVD, MP3, dll yang biasa digunakan.
+
+6.	HTTP (Hypertext transfer Protocol)
+Berguna dalam mengakses dan mengontrol robot menggunakan kumpulan dari beberapa bus (antarmuka).
+
+7.	Modbus
+Berguna untuk pertukaran informasi antara perangkat elektronik yang mendukung variasi protokol dan komunikasi perangkat inti(master) dengan slave(tambahan).
+
+8.	ROS (Robot Operating System)
+Berkomunikasi antar-node menggunakan konsep topik, layanan, dan aksi yang bersifat open source.
+
+9.	GPIO(General Purpose Input Output)
+Menggunakan antarmuka standar I2C untuk menyederhanakan perluasan port input/ output. GPIO menyediakan fungsi kontrol tambahan jika tidak memiliki cukup port.
+
+10.	SDIO
+Antarmuka ekspansi tipe SD yang disambungkan ke kartu SD dan ke perangkat yang mendukung antarmuka SDIO. Aplikasi target dari kartu kecepatan rendah adalah untuk mendukung kemampuan Input/ Output kecepatan rendah dengan pengeluaran perangkat keras yang minimal.
+
+
+
+Rafif Reinhart .A
+16523235
