@@ -57,7 +57,100 @@ sebesar 400kb per detik dan mampu mengirimkan data sebesar 15 atau 16 bit.
 
 
   Cara kerja lanjutannya adalah Master TX mampu mengirimkan data apapun ke lebih dari satu receiver yang disebut Slave RX, tetapi hanya receiver tertentu yang
-dapat menerima data bergantung dari jenis alamat yang dituju oleh Master TX, dimisalkan Chromatic Sandwich ingin transmisi data 00000001 ke Slave Address 2, maka yang menerima data hanya Slave RX ber-address 2.
+dapat menerima data bergantung dari jenis alamat yang dituju oleh Master TX, dimisalkan Chromatic Sandwich ingin transmisi data 00000001 ke Slave Address 2, 
+maka yang menerima data hanya Slave RX ber-address 2. Protokol komunikasi ini diterapkan pada LCD yang bertujuan untuk mengurangi penggunaan pin pada LCD menuju
+Arduino.
 
   Note: Data pendukung mengenai I2C telah dilampirkan pada file xx
 
+
+3. SPI ( Serial Peripheral Interface )
+
+  SPI adalah salah satu protokol komunikasi serial yang diusulkan oleh MOTOROLA, protokol komunikasi serial ini memiliki sifat duplex dan synchronous karena 
+masih menggunakan clock dalam transmisi data. Protokol komunikasi SPI menggunakan 4 kabel dalam operasinya, yaitu SCLK, MOSI, MISO, dan CS.
+
+
+                                   __________                               _________
+                                   | Master |                               | Slave |
+                                     
+                                      SCLK >-------------->-----------------> SCLK
+                                      MOSI >-------------->-----------------> MOSI
+                                      MISO <--------------<-----------------< MISO
+                                       CS  >-------------->-----------------> CS
+
+
+  - SCLK
+      Merupakan kabel yang digunakan untuk mengirimkan clock pulse selama transmisi data sedang berlangsung, clock pulse akan dikirimkan setelah CS mengirimkan
+    sinyal LOW menuju SPI Slave
+
+  - MOSI
+      Merupakan kabel yang digunakan untuk mengirimkan data dari Master SPI menuju Slave SPI
+
+  - MISO
+      Merupakan kabel yang digunakan untuk mengirimkan data dari Slave SPI menuju Master SPI
+
+  - CS
+      Merupakan kabel yang digunakan sebagai inisiasi dalam transmisi data, CS harus memasuki LOW agar Master SPI bisa mentransmisikan data melalui MISO
+
+    Kelebihan dari SPI dibandingkan dengan protokol komunikasi serial yang telah dijelaskan sebelumnya adalah dengan menggunakan SPI kita dapat mengirimkan atau
+menerima data dalam satu waktu, selain itu konsumsi daya pada SPI sangatlah rendah, dan kecepatan tranmisi oleh protokol komunikasi ini paling tinggi dibandingkan
+dengan yang lainnya. Protokol komunikasi ini digunakan oleh OLED ketika ingin menghubungkan OLED dengan Arduino.
+
+  Note: Data pendukung mengenai SPI telah dilampirkan pada file xx
+
+
+4. CAN ( Controller Area Network )
+
+  CAN merupakan salah satu protokol komunikasi serial yang memiliki sifat setengah duplex (Half duplex) dan memiliki sifat asynchronous sehingga tidak terdapat 
+clock pada pin CAN. Protokol komunikasi ini menggunakan 2 kabel, yaitu CANH sebagai HIGH dan CANL sebagai LOW
+
+
+
+
+                        CAN             Device 1          Device 2          Device 3
+                                           ^                 ^                  ^
+                                           |                 |                  |
+                        CANH >------------->-------------->--------------------->
+                        CANL >------------->-------------->--------------------->
+
+
+
+  CANH dan CANL akan terhubung dengan 3 perangkat yang nantinya akan terbentuk seperti bus, cara kerja dari protokol komunikasi ini cukup berbeda, karena pada
+jenis protokol komunikasi ini tidak terdapat Master sebagai pengirim dan Slave sebagai penerima, sehingga perangkat apapun yang terhubung dengan CAN dapat me-
+ngirimkan data dengan bebas apapun arahnya, misalkan Chromatic Sandwich ingin mengirim data dari CAN menuju Device 3, maka data yang hendak ditransmisikan harus
+dilengkapi dengan ID-Device 3 agar data sampai ke Device 3, jika ingin mengirimkan data dari device 3 ke device 2 pun bisa asalkan data yang hendak ditransmisikan
+harus diberi ID agar bisa sampai ke tempat yang sesuai
+
+  Jenis protokol komunikasi ini biasanya digunakan di automobil untuk dihubungkan pada sensor cahaya, radio, sensor level bahan bakar, dan lainnya. CAN memiliki
+sifat yang cukup berbeda dibandingkan protokol komunikasi lainnya, seperti:
+
+
+    - Bus Topology
+        Jenis protokol komunikasi ini memiliki bentuk yang unik, membuat data bisa terkirimkan dari berbagai arah tanpa adanya Master dan Slave
+
+    - Half Duplex
+        Data tidak bisa ditransmisikan secara bersamaan, harus dalam satu-satu dulu agar bisa mengirimkan data respons setelah data yang dikirimkan telah sampai
+
+    - Differential
+        Bentuk HIGH dan LOW yang diterapkan pada protokol komunikasi ini cukup berbeda memungkinkan untuk melindungi proses transmisi data dari noise, sehingga
+      data yang dikirimkan tidak error
+
+  Note: Data pendukung mengenai CAN telah dilampirkan pada file xx
+
+
+5. RS-485
+
+  Merupakan salah satu jenis komunikasi serial yang paling banyak digunakan pada industri sebagai penghubung antara pusat kontrol dengan perangkat yang hendak kita
+kontrol. Protokol komunikasi serial ini berbentuk kabel yang memiliki panjang hingga 1200 meter memungkinkan industri mampu mengontrol sebuah perangkat melalui
+jarak yang jauh dan mampu terhubung dengan 32 perangkat
+
+
+
+
+                                                                  ( RS-485)
+                                PLC ->----------->---------------------->-----------------------------> VHI
+
+
+
+  RS-485 dilengkapi dengan shielding pada kabel transmisi data yang mampu melindungi data yang sedang ditransmisikan dari efek noise elektrik, sehingga data yang
+ditransmisikan dapat terhindar dari error
