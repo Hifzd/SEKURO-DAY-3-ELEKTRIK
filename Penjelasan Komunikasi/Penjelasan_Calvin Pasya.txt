@@ -9,7 +9,7 @@ satu penerima (Receiver) dan satu pengirim (Receiver). Pengirim biasa disebut de
 
 
                                                  Data Path
-                      TX ---------------------------------------------------------- RX
+                      TX >--------------------------->----------------------------> RX
                 (Transmission)                                                   (Receiver)
 
 
@@ -31,7 +31,7 @@ yaitu SDA dan SCL
 
 
                                                   Data Path
-                    SDA ------------------------------------------------------------ ( SDA berfungsi sebagai kabel pengirim data yang hendak ditransmisikan )
+                    SDA ---->------------------------>---------------------------->- ( SDA berfungsi sebagai kabel pengirim data yang hendak ditransmisikan )
                     SCL ------------------------------------------------------------ ( SCL berfungsi sebagai clock )
 
   Cara kerjanya adalah ketika SDA mengirimkan data, maka SCL akan menciptakan clock pulse yang memiliki frekuensi yang sama dengan SDA, sehingga
@@ -44,10 +44,10 @@ sebesar 400kb per detik dan mampu mengirimkan data sebesar 15 atau 16 bit.
                                                       |
                                                       |
                                                       |
+                                                      |  <------( Data Path )
                                                       |
                                                       |
-                                                      |
-                          -----------------------------------------------------------
+                          -----------------------------------------------------------  <-------( Arah data bergantung dari alamat )
                           |                           |                             |
                           |                           |                             |
                           |                           |                             |
