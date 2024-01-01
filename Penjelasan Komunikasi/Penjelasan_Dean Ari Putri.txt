@@ -1,0 +1,74 @@
+Nama : Dean Ari Putri
+NIM : 16523092
+
+Macam-macam protokol komunikasi yang umumnya digunakan dalam robotika :
+
+A. SPI (Serial Peripheral Interface)
+
+- SPI banyak digunakan karena kemampuan kinerja hardwarenya. Biasanya digunakan saat membutuhkan kecepatan yang tinggi (misalnya SD cards, display modules atau pembaharuan informasi secara cepat seperti termometer). SPI dapat menghemat port I/O, meningkatkan jumlah periferal dan kinerja sistem. Bus SPI secara standar terdiri dari empat jalur : serial clock (SCK), master input/slave output line (MISO). Master output/slave input line (MOSI) dan chip select signal (CS).
+
+- Cara kerja SPI :
+SPI berkomunikasi dengan 2 cara:
+1. Memilih setiap perangkat dengan jalur Chip Select. Diperlukan jalur Chip Select yang terpisah untuk setiap perangkat
+2. Koneksi perangkat data daisy chain di mana setiap perangkat terhubung ke perangkat lainnya melalui data yang keluar ke data di jalur berikutnya.
+
+B. I2C (Inter-integrated-circuit)
+
+- Bus I2C menggunakan dua kabel (SDA dan SCL) untuk mentransfer informasi antara bus dan perangkat, komunikasi serial antara mikrokontroler dan perangkat eksternal, atau transfer data dua arah antara perangkat master dan perangkat slave. I2C adalah output OD, sebagian besar I2C adalah 2-kawat (jam dan data), umumnya digunakan untuk mengirimkan sinyal kontrol. I2C tidak digunakan untuk perangkat komunikasi PC, namun cenderung untuk modul dan sensor.
+
+- I2C banyak digunakan untuk proyek-proyek yang membutuhkan banyak bagian yang berbeda (misalnya sensor, pin, ekspansi, dan driver) yang bekerja bersama karena I2C dapat menghubungkan hingga 128 perangkat ke mainboard sambil mempertahankan jalur komunikasi yang jelas. Hal ini karena I2C menggunakan sistem alamat dan bus bersama, yang artinya banyak perangkat yang berbeda dapat dihubungkan menggunakan kabel yang sama dan semua data ditransmisikan pada satu kabel dan memiliki jumlah pin yang rendah. Kecepatan I2C juga bergantung pada kecepatan data, kualitas kabel, dan gangguan eksternal.
+
+- Cara kerja I2C :
+1. I2C memiliki 2 jalur : SCL (serial clock line) dan SDA (serial data line acceptance port)
+2. CL adalah jalur clock untuk menyinkronkan transmisi. SDA adalah jalur data yang melaluinya bit-bit data dikirim atau diterima.
+3. Perangkat master memulai transfer data bus dan menghasilkan clock untuk membuka perangkat yang ditransfer dan setiap perangkat yang dituju dianggap sebagai perangkat slave. 
+4. Hubungan antara perangkat master dan slave, pengiriman dan penerimaan pada bus tidak konstan. Tergantung pada arah transfer data pada saat itu. 
+5. Jika master ingin mengirim data ke slave, master harus terlebih dahulu mengalamatkan slave sebelum mengirim data apa pun.
+6. Master kemudian akan menghentikan transfer data. Jika master ingin menerima data dari slave, master harus kembali mengalamatkan slave terlebih dahulu. 
+7. Host kemudian menerima data yang dikirim oleh slave dan akhirnya, penerima mengakhiri proses penerimaan. Host juga bertanggung jawab untuk menghasilkan jam waktu dan mengakhiri transfer data.
+
+C. UART (Universal Asynchronous Reception and Transmission)
+
+- Merupakan komunikasi dua arah yang lengkap menurut baud rate standar, kecepatan lambat. Bus UART adalah port serial asinkron, sehingga umumnya jauh lebih rumit daripada dua port serial sinkron pertama. Umumnya, ini terdiri dari generator baud rate (baud rate yang dihasilkan sama dengan 16 kali baud rate transmisi), penerima UART, dan pemancar UART. Terdiri dari dua kabel dalam perangkat keras, satu untuk mengirim dan satu untuk menerima.
+
+- Cara kerja UART :
+1. Beroperasi antar perangkat dengan 3 cara:
+  -> Simpleks = transmisi data dalam satu arah
+  -> Setengah dupleks = transmisi data di kedua arah tetapi tidak secara bersamaan 
+  -> Dupleks penuh = transmisi data di kedua arah secara bersamaan 
+2. Setelah tersambung, data mengalir dari TX dari UART pengirim ke RX dari UART penerima.
+3. Karena UART adalah protokol transmisi serial asinkron maka Tidak ada jam
+4. UART pemancar mengubah data paralel dari perangkat master (misalnya CPU) menjadi bentuk serial dan mengirimkannya secara serial ke UART penerima. UART penerima akan mengubah data serial kembali menjadi data paralel untuk perangkat penerima.
+5. Karena UART tidak memiliki jam, UART menambahkan bit start dan stop yang ditransfer untuk menunjukkan awal dan akhir pesan.
+6. Hal ini membantu UART penerima mengetahui kapan harus memulai dan menghentikan pembacaan bit. Ketika UART penerima mendeteksi bit awal, UART akan membaca bit pada kecepatan BAUD yang ditentukan.
+7. Kecepatan transmisi data UART disebut sebagai BAUD Rate dan diatur ke 115.200 secara default (BAUD rate didasarkan pada kecepatan transmisi simbol, tetapi mirip dengan kecepatan bit).
+8. Kedua UART harus beroperasi pada baud rate yang sama. Jika perbedaan baud rate lebih dari 10%, waktu bit mungkin tidak tepat dan membuat data tidak dapat digunakan. Pengguna harus memastikan UART dikonfigurasikan untuk mengirim dan menerima dari paket data yang sama.
+
+D. I2S (Inter-IC Sound Bus)
+
+- Adalah standar bus yang dikembangkan oleh Philips untuk transmisi data audio di antara perangkat audio digital. Sebagian besar adalah 3-kawat (selain jam dan data, ada juga sinyal pemilihan saluran kiri dan kanan), I2S terutama digunakan untuk mengirimkan sinyal audio. Seperti STB, DVD, MP3, dan lain-lain.
+
+- I2S memiliki 3 sinyal utama:
+1) Serial clock SCLK, juga disebut bit clock (BCLK), yaitu sesuai dengan setiap bit data audio digital, SCLK memiliki 1 pulsa. Frekuensi SCLK = 2 × frekuensi sampling × jumlah bit sampling.
+2) Frame clock LRCK, (juga disebut WS), digunakan untuk mengalihkan data saluran kiri dan kanan. LRCK "1" berarti data saluran kiri sedang ditransmisikan, dan "0" berarti data saluran kanan sedang ditransmisikan. Frekuensi LRCK sama dengan frekuensi sampling.
+3) Data serial SDATA adalah data audio yang dinyatakan dalam dua komplemen. Kadang-kadang untuk menyinkronkan sistem dengan lebih baik, sinyal lain MCLK diperlukan untuk ditransmisikan, yang disebut master clock, juga disebut jam sistem (Sys Clock), yaitu 256 kali atau 384 kali frekuensi sampling.
+
+E. GPIO (General Purpose Input Output)
+
+- Menggunakan antarmuka I2C, SMBus, atau SPI standar industri untuk menyederhanakan perluasan port I/O. Ketika mikrokontroler atau chipset tidak memiliki port I/O yang cukup, atau ketika sistem perlu menggunakan komunikasi serial jarak jauh atau kontrol, produk GPIO dapat memberikan fungsi kontrol dan pemantauan tambahan. Setiap port GPIO dapat dikonfigurasikan sebagai input atau output oleh perangkat lunak. Lini produk GPIO Maxim mencakup GPIO 8-port hingga 28-port, yang menyediakan output push-pull atau output open-drain. Tersedia dalam paket QFN miniatur 3mm x 3mm.
+
+F. SDIO
+
+- SDIO adalah antarmuka ekspansi tipe SD. Selain dapat dihubungkan ke kartu SD, ini juga dapat dihubungkan ke perangkat yang mendukung antarmuka SDIO. Tujuan soket tidak hanya untuk memasukkan kartu memori. PDA dan laptop yang mendukung antarmuka SDIO dapat dihubungkan ke penerima GPS, adaptor Wi-Fi atau Bluetooth, modem, adaptor LAN, pembaca barcode, radio FM, penerima TV, pembaca otentikasi frekuensi radio, atau kamera digital dan perangkat lain yang menggunakan antarmuka standar SD.
+
+- Protokol SDIO dikembangkan dan ditingkatkan dari protokol kartu SD. Protokol SDIO menambahkan perintah CMD52 dan CMD53 ke protokol kartu SD. Oleh karena itu, perbedaan penting antara spesifikasi SDIO dan kartu SD adalah penambahan standar kecepatan rendah. Target aplikasi kartu kecepatan rendah dimulai dari perangkat keras terkecil untuk mendukung kemampuan I/O kecepatan rendah. Kartu berkecepatan rendah mendukung aplikasi seperti modem, pemindai barcode, dan penerima GPS. Sedangkan kartu berkecepatan tinggi mendukung kartu jaringan, kartu TV dan kartu "kombo", dll.
+
+G. CAN (Controller Area Network)
+
+- Salah satu bus yang paling banyak digunakan di dunia. Awalnya, CAN dirancang sebagai komunikasi mikrokontroler di lingkungan otomotif, bertukar informasi antara berbagai perangkat kontrol elektronik ECU di dalam kendaraan, membentuk jaringan kontrol elektronik otomotif. Sebagai contoh, perangkat kontrol CAN tertanam dalam sistem manajemen mesin, pengontrol transmisi, peralatan instrumentasi, dan sistem tulang punggung elektronik.
+
+- Dalam satu jaringan yang terdiri dari bus CAN, secara teori, banyak sekali node yang dapat dihubungkan. Dalam aplikasi praktis, jumlah node dibatasi oleh karakteristik kelistrikan perangkat keras jaringan. Misalnya, ketika menggunakan Philips P82C250 sebagai transceiver CAN, 110 node dapat disambungkan dalam jaringan yang sama. CAN dapat memberikan kecepatan transmisi data hingga 1Mbit/s, yang membuat kontrol waktu nyata menjadi sangat mudah. Selain itu, fitur verifikasi kesalahan perangkat keras juga meningkatkan kemampuan CAN untuk menahan gangguan elektromagnetik.
+
+sumber :
+http://en.fmuser.org/news/IPTV-encoder/Introduction-to-SPI-I2C-UART-I2S-GPIO-SDIO-CAN/
+https://www.seeedstudio.com/blog/2019/09/25/uart-vs-i2c-vs-spi-communication-protocols-and-uses/
