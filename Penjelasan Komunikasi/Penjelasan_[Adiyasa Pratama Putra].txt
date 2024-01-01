@@ -1,0 +1,23 @@
+Komunikasi
+Disusun oleh : Adiyasa Pratama Putra – 16023394
+
+Komunikasi merupakan suatu cara alat-alat elektronik berinteraksi sehingga menghasilkan suatu hubungan. Komunikasi memiliki tiga jenis interaksi, yakni simplex, half-duplex, dan full-duplex.
+-	Simplex; merupakan interaksi dalam satu arah dari sebuah perangkat.
+-	Half-Duplex; merupakan interaksi yang dapat berlangsung dalam dua arah. Namun, dalam satu waktu suatu perangkat hanya dapat melakukan satu jenis interaksi (menerima atau mengirim).
+-	Full-Duplex; merupakan jenis interaksi yang dapat dilakukan secara dua arah pada saat bersamaan.
+
+#KOMUNIKASI SPI
+Dalam komunikasi SPI terdapat hubungan master dan slave. Perangkat yang berperan sebagai master adalah mikrokontroler, sedangkan perangkat yang berperan sebagai slave adalah sensor atau perangkat lain yang berfungsi untuk menerima data. Komunikasi SPI merupakan memiliki interaksi berupa Full-Duplex. Pada komunikasi ini terdapat 4 buah kabel.
+Kelebihan komunikasi SPI adalah:
+1.	Tidak ada interupsi pada pengiriman data akibat start/stop bit.
+2.	Pemisahan MISO (Master Input/Slave Output) dan MOSI (Master Output/Slave Input) mengakibatkan pengiriman data dari master menuju slave dapat terjadi secara bersamaan.
+3.	Kecepatan transfer data lebih tinggi jika dibandingkan dengan I2C.
+
+#KOMUNIKASI I2C
+Dalam komunikasi I2C memungkinkan terjadinya interaksi dengan jumlah slave lebih dari satu, master tetap berjumlah satu. Komunikasi ini hanya menggunakan 2 buah kabel. Pada komunikasi I2C terdapat bit start dan bit stop sebagai penanda dimulai serta berakhirnya interaksi. Di dalam operasinya terdapat bit address yang memungkinkan bit terkirim menuju alamat yang unik, serta Data Frame yang berjumlah 2.
+
+#UART
+Komunikasi UART merupakan suatu jenis interaksi yang sering digunakan, kecapatan dari interaksi ini dapat dikonfigurasi. Komunikasi UART dapat berupa interaksi Half-Duplex atau Full-Duplex.
+
+#CAN-BUS
+CAN-BUS merupakan suatu komunikasi yang sering ditemui dalam bidang otomotif, komunikasi ini memungkinkan mikrokontroler dan perangkat dapat berinteraksi tanpa adanya computer host. CAN-BUS beroperasi dalam mode Half-Duplex yang memungkinkan komunikasi dua arah, namun tidak dapat dilakukan secara bersamaan.
