@@ -1,2 +1,63 @@
-Isi penjelasan kalian disini gess
-Jangan lupa untuk merubah judul file ini menjadi Penjelasan_[Nama].txt yaaa (tanpa [])
+Konten yang disampaikan di bawah ini merupakan contoh dari protokol komunikasi yang bekerja secara serial atau satu arah untuk mengirimkan data digital
+Terdapat beberapa jenis komunikasi serial yang umumnya digunakan pada sistem robotika yang akan dijelaskan di bawah ini
+
+
+1. UART ( Universal Asynchronous Receiver Transmitter )
+
+  UART adalah salah satu jenis protokol komunikasi serial yang bersifat asynchronous, dan pada protokol komunikasi ini menggunakan
+satu penerima (Receiver) dan satu pengirim (Receiver). Pengirim biasa disebut dengan TX dan penerima data disebut dengan RX
+
+
+                                                 Data Path
+                      TX ---------------------------------------------------------- RX
+                (Transmission)                                                   (Receiver)
+
+
+  UART biasanya dikonfigurasi berdasarkan 3 macam setelan agar komunikasi jenis ini bisa bekerja dengan baik
+      - Panjang Data (Biasanya dalam 8 bit)
+      - Bit mulai dan Bit stop (Pada data yang sedang dikirim, inisial bit ditandai dengan LOW atau 0 dan Final bit ditandai dengan HIGH atau 1)
+      - Kecepatan Transmisi (Biasanya menggunakan satuan Baud yang setelannya biasanya dalam 9600 baud/detik)
+
+  Komunikasi jenis ini digunakan pada salah satu mikrokontroller yang saat ini kita kenal sebagai Arduino.
+
+Note: Data pendukung mengenai UART telah dilampirkan pada file xx
+
+
+2. I2C ( Inter-Integrated Circuit )
+
+  I2C adalah salah satu jenis protokol komunikasi serial yang dikembangkan oleh PHILIPS, jenis protokol komunikasi ini merupakan salah satu jenis
+komunikasi serial yang berrsifat synchronous karena menggunakan clock pulse dalam pengiriman datanya. Protokol komonikasi ini menggunakan 2 kabel,
+yaitu SDA dan SCL
+
+
+                                                  Data Path
+                    SDA ------------------------------------------------------------ ( SDA berfungsi sebagai kabel pengirim data yang hendak ditransmisikan )
+                    SCL ------------------------------------------------------------ ( SCL berfungsi sebagai clock )
+
+  Cara kerjanya adalah ketika SDA mengirimkan data, maka SCL akan menciptakan clock pulse yang memiliki frekuensi yang sama dengan SDA, sehingga
+receiver bisa mengetahui kapan SDA mulai inisiasi data dan kapan data berakhir. Kecepatan data yang ditransmisikan oleh protokol komunikasi ini
+sebesar 400kb per detik dan mampu mengirimkan data sebesar 15 atau 16 bit.
+
+
+
+                                                  Master TX
+                                                      |
+                                                      |
+                                                      |
+                                                      |
+                                                      |
+                                                      |
+                          -----------------------------------------------------------
+                          |                           |                             |
+                          |                           |                             |
+                          |                           |                             |
+                       Slave RX                    Slave RX                      Slave RX
+                     (Address 1)                 (Address 2)                    (Address 3)
+
+
+
+  Cara kerja lanjutannya adalah Master TX mampu mengirimkan data apapun ke lebih dari satu receiver yang disebut Slave RX, tetapi hanya receiver tertentu yang
+dapat menerima data bergantung dari jenis alamat yang dituju oleh Master TX, dimisalkan Chromatic Sandwich ingin transmisi data 00000001 ke Slave Address 2, maka yang menerima data hanya Slave RX ber-address 2.
+
+  Note: Data pendukung mengenai I2C telah dilampirkan pada file xx
+
