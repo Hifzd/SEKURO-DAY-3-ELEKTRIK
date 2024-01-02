@@ -1,0 +1,24 @@
+Jenis Komunikasi Data pada Mikrokontroler
+
+1. Komunikasi Serial:
+Komunikasi serial adalah suatu metode komunikasi yang mengirimkan data satu bit dalam satu waktu. Jadi data dikirim satu per satu secara berurutan. Contoh komunikasi serial:
+
+a. UART (Universal Asynchronous Receiver Transmitter)
+UART adalah metode komunikasi serial yang memungkinkan dua perangkat berbeda berinteraksi satu sama lain tanpa clock. Dengan kata lain, metode komunikasi ini berjalan secara asinkron, tanpa menggunakan clock.
+Dalam UART, data dikirim dalam bentuk frame yang terdiri dari start bit, data bits, parity bit (opsional), dan stop bits. Pin Tx (transmitter) mengeluarkan paket data secara serial, sedikit demi sedikit. UART penerima pada pin Rx-nya (receiver) membaca paket data sedikit demi sedikit.
+Salah satu kelebihan UART adalah bebas konflik karena full-duplex, artinya dapat mengirim dan menerima secara bersamaan melalui dua jalur yang berbeda.
+
+b. SPI (Serial Peripheral Interface)
+Metode komunikasi SPI merupakan komunikasi serial secara sinkron (synchronous) yang melibatkan master dan slave sehingga SPI merupakan komunikasi full-duplex. Berbeda dengan UART, SPI menggunakan clock untuk menyinkronkan deteksi bit pada receiver. Bus SPI dikembangkan untuk menyediakan komunikasi dengan kecepatan tinggi dengan menggunakan pin mikrokontroler yang sedikit. Jalur komunikasi yang digunakan pada jenis ini adalah MOSI (Master Out Slave In), MISO (Master In Slave Out), SCLK (Serial Clock), dan SS (Slave Select).
+
+c. I2C (Inter-Integrated Circuit)
+I2C adalah komunikasi serial dua arah menggunakan dua saluran yang didesain khusus untuk mengirim maupun menerima data. Sistem I2C terdiri dari saluran SCL (Serial Clock) dan SDA (Serial Data). SDA digunakan untuk mengirim data dan SCL digunakan untuk mengirimkan sinyal clock yang akan mengatur timing komunikasi antar perangkat yang terhubung. Komunikasi I2C juga melibatkan master dan slave. Proses pengiriman dan penerimaan data dimulai dengan start condition, yaitu ketika sinyal pin SDA berpindah dari HIGH ke LOW saat pin SCL dalam keadaan HIGH. Lalu master akan melakukan adressing (mengidentifikasi perangkat yang ingin berkomunikasi). Kemudian, data akan ditransfer dalam bentuk byte, dan diikuti pengiriman bit ACK oleh slave jika data berhasil dikirim, atau bit NACK jika data tidak diterima dengan baik atau ingin menghentikan pengiriman data. Terakhir, sinyal SDA akan berpindah dari LOW ke HIGH saat SCL dalam keadaan HIGH (stop condition).
+
+2. Parallel Communication
+Komunikasi paralel merupakan metode komunikasi yang mengirimkan sejumlah n bit data pada saat yang bersamaan melalui n untai konduktor (jalur). Mikrokontroler dapat berkomunikasi dengan perangkat eksternal menggunakan multiple parallel I/O lines. Meskipun komunikasi paralel lebih cepat dibanding serial, metode ini memiliki kelemahan. Penggunaan jalur yang banyak akan memakan banyak tempat dan dapat membuat desain hardware menjadi lebih kompleks.
+
+3. CAN (Controller Area Network)
+Controller Area Network (CAN) adalah protokol komunikasi seriel yang dikembangkan khusus untuk digunakan dalam lingkungan industri dan kendaraan. Ini merupakan metode komunikasi yang sangat andal dan efisien, terutama digunakan dalam kendaraan bermotor, sistem kendali otomatis, dan sistem industri. CAN memungkinan mikrokontroler dan perangkat lain saling berkomunikasi tanpa komputer host.
+
+4. Wireless Communication
+Komunikasi ini memungkinkan perangkat berkomunikasi secara wireless atau tanpa menggunakan kabel, dan tentunya dalam jarak tertentu. Komunikasi wireless menggunakan gelombang elektromagnetik untuk mengirim dan menerima data. Contohnya ialah Bluetooth, Wifi, dan RF (Radio Frequency).
