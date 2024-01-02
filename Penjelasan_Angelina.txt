@@ -1,0 +1,73 @@
+PROTOKOL KOMUNIKASI DALAM ROBOTIKA
+[Angelina – 16523099]
+
+Penjelasan Protokol Komunikasi yang umumnya digunakan dalam robotika, antara lain dijelaskan sebagai berikut.
+
+Sistem/Mode Komunikasi ada tiga macam, yakni Simplex, Half-Duplex, dan Full-Duplex. 
+
+Komunikasi Simplex hanya satu arah. Jika ada dua komponen, transmitter dan receiver, maka prosesnya hanya satu, yakni transmitter mengirimkan sinyal pada receiver. Komunikasi one way seperti ini membuat perangkat pengirim (data) menggunakan seluruh saluran komunikasi/bandwidth yang ada.
+
+Komunikasi Half-Duplex dapat bersifat timbal balik, tetapi secara bergantian (Take Turns). Satu komponen bisa berperan sebagai transmitter atau receiver (tidak sekaligus) Jika pada proses pertama transmitter (komponen I) mengirimkan sinyal pada receiver (komponen II), komponen II juga dapat berperan sebagai transmitter yang mengirim sinyal pada komponen I (receiver) pada waktu yang berbeda (usai proses pertama).
+
+Komunikasi Full-Duplex bersifat timbal balik dan dapat terjadi pada waktu yang sama (Simultaneous) karena perbedaan jalur. Pada jenis komunikasi ini, kedua komponen dapat mengirim dan menerima sinyal atau data sekaligus. Mirip dengan half-duplex, tetapi komunikasi full=duplrex membagi saluran yang tersedia menjadi dua bagian. Satu bagiannya digunakan untuk mengirim data, dan yang lainnya digunakan untuk menerima data.
+
+Intra System Communication Protocol
+
+Komunikasi SPI
+Komunikasi SPI memiliki hubungan master dan slave. Perangkat master biasanya adalah yang memegang control atau mengendalikan clock pada komunikasi, seperti mikrokontroler. Perangkat slave adalah perangkat yang dapat menerima data/perintah dari master dan biasanya berupa sensor, display, atau display memory. Komunikasi SPI ini memiliki komponen/pin seperti MOSI (Master Output/Slave Input), MISO (Master Input/Slave Output), SCLK (Clock), dan SS/CS (Slave Select/Clock Select). Fungsi MOSI untuk mengirim data dari master, sedangkan MISO untuk mengirim data dari Slave. SCLK sebagai sumber clock, SS/CS untuk memilih slave yang akan dikirimkan data.
+
+Kelebihan Komunikasi SPI, antara lain :
+1. Pemisahan MISO dan MOSI memungkinkan komunikasi Full-Duplex, sehingga memungkinkan pengiriman data dari master dan slave secara bersamaan.
+2. Tidak ada interupsi pada pengiriman data yang biasanya terjadi akibat start/stop bit.
+3. Kecepataan transfer data lebih tinggi dari I2C.
+
+Komunikasi I2C 
+Komunikasi I2C memiliki dua pin, yakni SDA dan SCL. SDA (Serial Data), dan SCL (Serial Clock). Komunikasi I2C memiliki kesamaan dengan komunikasi SPI, terdapat master dan slave. Komunikasi I2C memungkinkan komunikasi dengan slave yang jumlahnya lebih dari satu. Jika komunikasi SPI menggunakan 4 kabel (4 pin), komunikasi SPI hanya menggunakan 2 kabel.
+
+Komunikasi I2C memiliki kondisi start condition dan stop untuk pengiriman data (mirip dengan UART). Komunikasi I2C juga memiliki address frame yang berisi alamat slave yang dituju atau ingin dikirimkan data, sehingga memungkinkan komunikasi dengan slave yang lebih dari satu. Terdapat juga data frame yang biasanya lebih dari satu, tetapi tergantung pada inputan user.
+
+Kelebihan I2C
+1. Efektif dan sederhana
+2. Menggunakan penyimpanan yang lebih sedikit karena langsung menyambungkan komponen.
+3. Mendukung sistem multi-mastering, yaitu device yang dapat mengirim/menerima data dapat manjadi master.
+
+CAN-Bus
+Controller Area Network-Bus (CAN-Bus) adalah standar bus kendaraan yang memungkinkan perangkat dan mikrokontroler untuk berkomunikasi tanpa komputer host. CAN-Bus dapat beroperasi dalam mode half-duplex, yakni dapat mengirim/menerima data/sinyal secara bergantian dan tidak bersamaan.
+
+Kelebihan komunikasi CAN :
+1. Biaya yang lebih murah karena jumlah kabel yang digunakan lebih sedikit.
+2. Cepat untuk melakukan komunikasi antara modul kontrol dan sensor yang berbeda karena mendukung kecepatan transfer data yang cepat.
+
+CAN COM 
+CAN COM, Controller Area Network Serial Communication, memungkinkan pengaktifan node yang berbeda di jaringan untuk berbagi akses ke bus secara efektif dan mendukung komunikasi jarak jauh. CAN COM memungkinkan penggunaan bandwidth dengan skema prioritas arbitrasi (Arbitration Field). CAN COM juga memiliki control field, CRC field, ACK field dalam standard remote framenya. 
+
+Inter System Communication Protocol
+
+Komunikasi UART
+UART (Universal Asynchronous Receiver Transmitter) merupakan protokol komunikasi perangkat-ke-perangkat. UART memungkinkan komunikasi dengan serial asinkron dengan kecepatan tertentu. Dalam komunikasi serial, data ditransfer bit demi bit menggunakan satu jalur atau kabel. Komunikasi UART bisa half duplex atau full duplex. UART memiliki 3 pin, RX (Receiver), TX (Transmitter), dan GND (Ground). Sistem full duplex tampak pada RX dan TX yang terpisah dan dapat mengirim/menerima data sekaligus. UART juga memiliki kondisi start dan stop.
+
+Kelebihan UART :
+1. Sistem antarmuka yang mudah untuk menghubungkan perangkat embedded system dan komputer desktop.
+2. Dapat langsung dihubungkan ke sistem antarmuka fisik RS-232.
+
+Komunikasi USART
+USART atau Universal Synchronous and Asynchronous Transmitter and Receiver adalah protokol komunikasi serial yang menggunakan dua kabel.  Sama seperti UART,  kabel data dilabelkan dengan Rx (Receiver) dan Tx (Transmitter). USART menggunakan mode full duplex, dapat menerima/mengirim data secara bersamaan. Perbedaan USART dengan UART hanya pada mode synchronous untuk sumber clock. Pada mode synchronous, hanya satu sumber clock yang digunakan bersama-sama.  USART menyediakan keduanya, asynchronous dan synchronous, sedangkan UART hanya asynchronous.
+
+Kelebihan komunikasi USART, antara lain :
+1. Kecepatan USART lebih dari kecepatan UART.
+2. Menggunakan sinyal data dan clock.
+3. Data ditransmisikan dalam bentuk blok.
+
+USB Protocol
+USB atau Universal Serial Bus adalah protokol komunikasi serial yang juga menggunakan protokol dua kabel. Pinnya dilabelkan dengan D+ dan D-, digunakan untuk mengirim data secara serial kepada host dan perangkat periferal. Untuk USB Protocol, terdapat berbagai baca mode transfer/kecepatannya, seperti mode slow-speed (10 kbps sampai 100 kbps), mode full-speed (500 kbps sampai 10 mbps), dan mode high-speed (2 mbps sampai 400 Mpbs).
+
+Protokol Intrumentasi Industrial (Automasi
+
+RS-232
+Protokol komunikasi RS-232 adalah komunikasi asinkron dan menggunakan sistem biner untuk mentransmisikan data dalam format ASCII. RS-232 memiliki port serial PLCs yang digunakan untuk mengirim/menerima data dengan memanfaatkan tegangan. Biasanya 1 bit direpresentasikan dengan tegangan -12 Volt dan 0 bit direpresentasikan dengan tegangan +12V.
+
+RS-485
+Protokol komunikasi RS-485 adalah protokol komunikasi dua kabel yang memungkinkan penggunanya untuk berkomunikasi dengan banyak perangkat dalam waktu yang bersamaan. Jumlah perangkat yang dapat terkoneksi adalah 32 perangkat yang tidak lebih dari jarak 1200 meter. 
+
+Ethernet(TCP/IP)
+Ethernet(Transfer Control Protocol/Internet Protocol) adalah salah satu bentuk LAN (Local Area Network) dibawah IEEE. Ethernet memiliki dua tipe node, DTE (Data Terminal Equipment) dan DCE (Data Communication Equipment). DTE adalah perangkat yang mengirim dan menjadi destinasi pengiriman data. DCE adalah perangkat intermediate yang dapat menerima atau metransmisikan ulang sinyal/data dalam suatu jaringan. IP digunakan untuk routing.
