@@ -1,0 +1,31 @@
+Saluran komunikasi dapat diklasifikasikan berdasarkan mode operasinya menjadi tiga jenis utama, yaitu Simplex, Half Duplex, dan Full Duplex. 
+
+	1. Simplex:
+Pada saluran komunikasi Simplex, informasi hanya dapat mengalir dalam satu arah. Karena sinyal hanya berpergian dalam satu arah, perangkat pengirim menggunakan seluruh saluran komunikasi atau semua bandwith yang tersedia.
+Contoh: Radio siaran, televisi, dan keyboard komputer
+
+	2. Half Duplex:
+Pada saluran komunikasi Half Duplex, informasi dapat mengalir dalam dua arah, tetapi tidak bisa berlangsung dalam satu waktu yang sama. Artinya, perangkat hanya bisa menjadi pengirim atau penerima pada suatu waktu. Sinyal bepergian dalam kedua arah melalui medium tetapi hanya dalam satu arah pada satu waktu.
+Contoh: Walkie-talkie atau transceiver
+
+	3. Full Duplex:
+Pada saluran komunikasi Full Duplex, informasi dapat mengalir dalam dua arah sekaligus. Artinya, perangkat dapat mengirim dan menerima data secara bersamaan, karena memiliki perbedaan jalur menjadi dua bagian, satu bagian untuk mengirim data dan bagian lainnya untuk menerima data.
+Contoh: Telepon biasa 
+
+Komunikasi SPI
+	a. Master: perangkat yang menginisiasi dan mengendalikan komunikasi. Master memiliki kendali atas jalannya komunikasi. Biasanya berupa mikrokontroller.
+	b. Slave: perangkat yang merespons perintah dari master. Ada satu master dan satu atau lebih slave dalam konfigurasi SPI. Biasanya berupa sensor, display, maupun chip memori yang menerima data/instruksi dari master.
+	c. MOSI (Master Output/Slave Input) : mengirim data dari Master
+	d. MISO (Master Input/Slave Output) : mengirim data dari Slave
+	e. SCLK (Clock) : Sumber Clock
+	f. SS/CS (Slave Select/Chip Select) : untuk memilih Slave
+Kelebihan Komunikasi SPI :
+	• Tidak adanya interupsi pada pengiriman data akibat start/stop bit
+	• Pemisahan MISO dan MOSI memungkinkan pengiriman data dari master dan slave secara bersaman
+	• Kecepatan transfer data yang cenderung lebih tinggi dari I2C
+
+Komunikasi I2C juga terdapat master dan slave seperti halnya Komunikasi SPI. Komunikasi I2C memungkinkan komunikasi dengan lebih dari satu slave. Komunikasi I2C menggunakan dua kabel saja daripada empat kabel seperti SPI. Pada Komunikasi I2C ada start/stop bit.
+
+UART adalah protokol yang banyak digunakan yang memungkinkan komunikasi serial asinkron dengan kecepatan yang dapat diatur. Dalam komunikasi serial, data dapat dikirim bit demi bit melalui satu jalur atau kabel. UART memiliki kemampuan half duplex dan full duplex.
+
+CAN-Bus adalah standar bus kendaraan yang memungkinkan mikrokontroler dan perangkat untuk berkomunikasi tanpa komputer host. CAN bus beroperasi dalam mode half-duplex, yang berarti setiap node dapat mengirim dan mengirim pesan, tetapi tidak secara bersamaan.
