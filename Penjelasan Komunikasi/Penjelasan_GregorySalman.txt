@@ -1,0 +1,77 @@
+Protokol Komunikasi
+gregory salman / 16523188
+
+Protokol komunikasi adalah serangkaian aturan yang digunakan untuk memfasilitasi pertukaran atau transmisi data antar perangkat ataupun sistem. Dengan menggunakan protokol ini memastikan bahwa komunikasi yang berlangsung berjalan secara terstruktur. Beberapa protokol komunikasi antarperangkat yang sering digunakan dalam robotika adalah SPI (Serial Peripheral Interface), I2C (Inter-Integrated Circuit), dan UART (universal asynchronous receiver / transmitter).
+
+Sebelum masuk lebih dalam kedalam penjelasan protokol komunikasi yang disebut diatas, ada 3 tipe arah transmisi yang dapat terjadi, yaitu simplex, half-duplex, dan duplex.
+1. Simplex Transmisi di mana sinyal-sinyal hanya dapat dikirim secara satu arah.
+2. Half-Duplex Transmisi di mana data dapat ditransmisikan atau diterima secara dua arah tapi tidak dapat secara bersama-sama.
+3. Full Duplex Transmisi di mana data dapat ditransmisikan dua arah dan secara bersamaan.
+
+-----
+SPI
+Protokol ini biasa diaplikasiskan pada sistem yang memerlukan komunikasi full-duplex, di mana data dapat dikirim dan diterima secara bersamaan. SPI menggunakan arsitektur master-slave, dimana master mengendalikan proses komunikasi dan satu atau lebih perangkat lain bertindak sebagai slave.
+
+Master dan slave pada SPI terhubung dalam 4 jalur. Setiap jalur nantinya akan mempunyai informasi dan membawa sinyal tertentu yang didefinisikan oleh protocol dari bus SPI.
+1. MOSI (Master Output Slave Input) 
+  jalur ini akan mentransmisikan sinyal output dari master device yang merupakan shift register dari master menuju input dari slave.
+2. MISO (Master Input Slave Output) 
+  jalur ini akan mentransmisikan input dari master device untuk menerima data shift register dari slave device menuju master.
+3. SCK atau SCLK (Serial Clock) 
+  Clock yang dihasilkan master yang berguna menandakan komunikasi SPI dan untuk melakukan shifting terhadap shift register dari kedua device.
+4. SS’ (Slave Select) 
+  ini adalah pin yang digunakan untuk memilih slave mana yang akan diberikan perintah oleh master (dengan asumsi lebih dari satu slave device).
+
+Kelebihan SPI meliputi kemudahan implementasi, kecepatan transfer yang tinggi, dan dukungan untuk konfigurasi berbagai mode komunikasi.
+
+-----
+I2C
+I2C adalah multi-transfer/multi-slave bus serial half-duplex dua kabel (serial data line dan serial clock line) yang menggunakan 3.3V atau 5V dan umumnya digunakan untuk mengirimkan sinyal kontrol. I2C digunakan untuk mentransfer informasi antara bus dan perangkat. I2C sering dipakai pada rangkaian yang mementingkan harga pembuatan yang cenderung murah. 
+
+Cara kerja I2C adalah sebagai berikut. SDA digunakan untuk mengirim dan menerima data antar perangkat, sedangkan SCL digunakan untuk mengatur waktu transfer data. Misalkan terdapat sebuah sistem sensor suhu dengan mikrokontroler. Mikrokontroler akan mengirimkan sinyal START yang diikuti dengan alamat sensor dan bit baca. Sensor akan merespons dengan data suhu yang dikirim dalam bentuk bit dan mikrokontroler akan mengakhiri transaksi dengan sinyal STOP.
+
+Beberapa kekurangan dalam penggunaan I2C adalah:
+1. Kecepatan Terbatas 
+  I2C biasanya memiliki kecepatan transfer data yang lebih lambat jika dibandingkan dengan SPI. Sehingga penggunaan I2C tidak cocok apabila digunakan dalam sistem yang memerlukan kecepatan tinggi.
+2. Jarak Terbatas 
+  Jarak transfer data I2C terbatas jika dibandingkan dengan protokol lain. Kabel yang lebih panjang dapat mengakibatkan penurunan kualitas sinyal dan peningkatan potensi kesalahan transmisi. 
+3. Tabrakan Alamat 
+  Beberapa perangkat di bus I2C memiliki alamat yang sama. Ini dapat menyebabkan bentrok data dan membuat pengenalan perangkat menjadi sulit. Pengelolaan alamat dengan benar menjadi sangat penting untuk menghindari masalah ini.
+4. Kompleksitas Perangkat Keras 
+  Implementasi I2C di perangkat keras kadang-kadang memerlukan komponen tambahan seperti resistor pull-up untuk memastikan kualitas sinyal yang baik. Ini dapat menambah kompleksitas perancangan perangkat keras.
+
+Tetapi penggunaan protokol komunikasi I2C memiliki beberapa kelebihan yang membuat I2C tetap bisa dibilang cukup populer digunakan dalam sistem komunikasi data mikrokontroler
+1. I2C memungkinkan beberapa perangkat untuk berbagi saluran komunikasi yang sama, menghemat jumlah pin yang diperlukan oleh mikrokontroler karena menggunakan jalur data dan clock yang sama. 
+2. Memiliki kemampuan untuk mengenali alamat unik pada setiap perangkat, sehingga memungkinkan sistem untuk menghubungkan banyak perangkat tanpa adanya konflik.
+
+------
+UART
+protokol komunikasi asinkron yang digunakan untuk mentransfer data antara perangkat secara serial. UART menggunakan dua jalur, satu jalur untuk mentransmisikan data yang disebut dengan pin TX dan jalur lainnya untuk menerima data yang disebut dengan pin RX.
+
+Salah satu fitur utama UART adalah sifatnya yang asinkron, artinya tidak memiliki clock signal. Pada UART ini, data dikirim dan diterima berdasarkan kecepatan yang telah disepakati sebelumnya antara pengirim dan penerima. Pengaturan UART adalah panjang data, bit paritas, flow control, jumlah bit stop dan baud rate. 
+
+Baud rate merupakan jumlah bit per detik (bps) yang bisa ditransmisikan atau diterima oleh perangkat UART. Kita perlu mengatur kedua perangkat UART dengan baud rate yang sama untuk memperoleh transmisi data yang tepat. Nilai umum untuk baud rate yaitu 9600, 1200, 2400, 4800, 19200, 38400, 57600 dan 115200 bps. 
+
+Kelebihan UART:
+1. Sederhana dan Mudah Diimplementasikan 
+  cocok untuk aplikasi dengan kebutuhan komunikasi yang tidak terlalu kompleks.
+2. Asinkron dan Fleksibel 
+  sifat asinkron memungkinkan komunikasi tanpa ketergantungan pada clock bersama, dan ini membuat UART lebih fleksibel dan dapat digunakan dalam berbagai kecepatan (baud rate) dan pengaturan.
+3. Ringan dan Efisien 
+  Implementasi yang sederhana dan minimnya tambahan bit kontrol (seperti start bit dan stop bit) membuat UART ringan dan efisien dalam penggunaan bandwidth.
+4. Kemampuan Half-duplex dan Full-duplex 
+  UART dapat digunakan dalam mode half-duplex ataupun full-duplex, memberikan fleksibilitas dalam komunikasi antar perangkat.
+
+Kekurangan UART:
+1. Tidak Ada Mekanisme Pemulihan Kesalahan 
+  UART tidak memiliki mekanisme bawaan untuk mendeteksi atau memperbaiki kesalahan komunikasi sehingga membuat UART kurang dapat diandalkan.
+2. Keterbatasan Jarak dan Kecepatan 
+  Jaraknya lebih cocok untuk komunikasi dalam jarak yang relatif dekat, dan kecepatannya relatif lebih lambat apabila dibanding protokol komunikasi yang lain.
+3. Memerlukan Sinkronisasi Manual 
+  Dalam beberapa kasus penggunaan UART, pengaturan manual untuk sinkronisasi baud rate diperlukan di kedua sisi komunikasi agar komunikasi berhasil.
+
+
+reference :
+https://www.arduinoindonesia.id/2023/08/komunikasi-data-mikrokontroler-i2c-dan-sensor-menggunakan-i2c.html
+https://www.arduinoindonesia.id/2023/08/komunikasi-data-mikrokontroler-i2c-dan-sensor-menggunakan-i2c.html
+https://id.fmuser.org/news/IPTV-encoder/Introduction-to-SPI-I2C-UART-I2S-GPIO-SDIO-CAN/
