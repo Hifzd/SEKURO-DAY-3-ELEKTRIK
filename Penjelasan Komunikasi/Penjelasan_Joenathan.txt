@@ -1,0 +1,35 @@
+Ada 3 tipe komunikasi dalam robotik:
+1. Simplex, Komunikasi ini bersifat hanya 1 arah/searah. Hal ini menyebabkan hanya setiap pihak hanya bisa menjadi sang pengirim sinyal atau penerima sinyal.
+2. Half-Duplex, Komunikasi ini bersifat 2 arah (kedua pihak bisa mengirim dan menerima sinyal), tetapi kedua pihak tidak bisa menjadi penerima dan pengirim siyal pada waktu yang sama.
+3. Full-Duplex, Komunikasi ini bersifat 2 arah (kedua pihak bisa mengirim dan menerima sinyal), tetapi berbeda dengan half-duplex pada komunikasi ini kedua bisa menjadi penerima dan pengirim siyal pada waktu yang sama.
+
+Komunikasi SPI
+Komunikasi SPI merupakan suatu bentuk komunikasi yang memiliki hubungan master dan slave, dimana master sebagai pengendali clock dan komunikasi (biasanya berupa mikrokontroler) sedangkan slave (penerima perintah dari master) biasanya sebagai chip memory, display, dan sensor).
+Kelebihan:
+1. Tidak ada interupsi saat pengiriman karena adanya start/stop bit.
+2. MISO dan MOSI yang berbeda memungkinkan komunikasi 2 arah disaat yang bersamaan.
+3. Kecepatan transfer data lebih cepat dari I2C
+Komponen:
+1. MOSI (Master Output/Slave Input): Mengirim data dari master ke slave
+2. MISO (Master Input/Slave Output): Mengirim data dari slave ke master
+3. SCLK: Sumber Clock
+4. SS/CS (Slave Select/Chip Select): Memilih slave yang akan digunakan
+
+Komunikasi I2C
+Komunikasi ini juga memiliki hubungan master dan slave. Komunikasi ini memungkinkan komunikasi yang jumlahnya lebih dari 1. Komunikasi ini menggunakann 2 pin, berbeda dengan komunikasi spi yang menggunakan 4 pin. Pengiriman data di sini mirip dengan sistem UART. Komunikasi ini menggunakann bit start untuk memulai pengiriman data dan stop bit untuk mengakhirinya. Dibutuhkan adress frame yang berisi 7/10 bit sebagai alamat slave yang dituju pada komunnikasi ini.
+Komunikasi ini memugkinkan komunikasi dengan berbagai slave/lebih dari 1 slave (asalkan setiap slave memiliki adress yang berbeda-beda//unik masing-masing).
+Komponen:
+1. SDA: Serial Data
+2. SCL: Serial Clock
+
+UART(Universal Asynchronous Reciever Transmitter)
+UART merupakan protokol komunikasi perangkat-ke-perangkat yang sering digunakan dimana-mana. Menggunakann bit start untuk memulai pengiriman data dan stop bit untuk mengakhirinya. Mampu komunikasi half-duplex dan full-duplex. Komunikasi ini bersifat asinkron dengan kecepatan yang bisa diatur. Dalam komunikasi serial, data dikirimkan melalui kabel atau jalur secara bit demi bit.
+Komponen:
+1. TX: Mengirim data
+2. RX: Menerima data
+
+CAN-bus(Control Area Network - bus)
+Standar bus kendaraan yang memungkinkan mikrokontroler dan perangkat untuk berkomunikasi tanpa host komputer. CAN-bus bisa beroperasi secara half-duplex. 
+
+CAN COM
+Bus idle -> SOF -> Identifier -> RTR -> IDE -> r -> DLC -> CRC Sequence -> DEL -> ACK -> DEL -> EOF -> ITM -> Bus idle
