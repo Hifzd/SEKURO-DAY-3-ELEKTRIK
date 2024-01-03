@@ -1,0 +1,16 @@
+Dalam sistem kendali diperlukan sebuah komunikasi antar sistem yang memiliki kemampuan mengendalikan dan dikendalikan. Komunikasi ini sering disebut sebagai komunikasi serial, pada dasarnya komunikasi serial ini terjadi didalam bus namun ada kalanya bus mengalami kepadatan informasi yang disampaikan, Sebab hal itu dibuatlah serial komunikasi yang lebih komplek yang merupakan kumpulan dari beberapa bus.
+
+1. I2C (Inter-Integrated Circuit) 
+I2C adalah bus serial dua kabel yang dikembangkan oleh PHILIPS, digunakan untuk menghubungkan mikrokontroler dan perangkat periferal mereka. Bus I2C menggunakan dua kabel (SDA dan SCL) untuk mentransfer informasi antara bus dan perangkat.
+2. SPI (Serial Peripheral Interface) 
+SPI adalah metode bus serial sinkron yang diusulkan oleh MOTOROLA. Antarmuka 3 hingga 4 kabel, pengiriman dan penerimaan independen, dapat disinkronkan. Ini banyak digunakan karena fungsi perangkat kerasnya yang kuat.
+3. UART (Universal Asynchronous Reception and Transmission) 
+UART adalah protokol komunikasi serial sederhana yang memungkinkan host berkomunikasi dengan perangkat tambahan. UART mendukung transmisi data serial, asinkron, dan dua arah. Ini memiliki dua jalur data, satu untuk mengirim (TX) dan satu lagi untuk menerima (RX), yang digunakan untuk berkomunikasi melalui pin digital 0, pin digital 1.
+4. CAN (Controller Area Network) 
+CAN adalah standar bus kendaraan yang kuat yang dirancang untuk memungkinkan mikrokontroler dan perangkat berkomunikasi dengan aplikasi satu sama lain tanpa komputer host. Ini adalah protokol berbasis pesan, dirancang khusus untuk aplikasi otomotif tetapi sekarang juga digunakan di bidang lain seperti otomatisasi industri dan peralatan medis. 
+5. I2S (Inter-IC Sound Bus) 
+standar bus yang dikembangkan oleh Philips untuk transmisi data audio antar perangkat audio digital. Sebagian besar adalah 3-kabel (selain jam dan data, ada juga sinyal pemilihan saluran kiri dan kanan), I2S terutama digunakan untuk mengirimkan sinyal audio. Seperti STB, DVD, MP3, dll yang biasa digunakan.
+6. GPIO (General Purpose Input Output) atau Bus Expander
+menggunakan antarmuka standar industri I2C, SMBus atau SPI untuk menyederhanakan perluasan port I / O. Ketika mikrokontroler atau chipset tidak memiliki cukup port I / O, atau ketika sistem perlu menggunakan komunikasi atau kontrol serial jarak jauh, produk GPIO dapat menyediakan fungsi kontrol dan pemantauan tambahan. Setiap port GPIO dapat dikonfigurasi sebagai input atau output oleh perangkat lunak. Lini produk GPIO Maxim mencakup GPIO 8-port hingga 28-port, menyediakan output push-pull atau output open-drain. Tersedia dalam paket QFN 3mm x 3mm miniatur.
+7. SDIO
+SDIO adalah antarmuka ekspansi tipe SD. Selain dapat disambungkan ke kartu SD, juga bisa disambungkan ke perangkat yang mendukung antarmuka SDIO. Tujuan soket tidak hanya untuk memasukkan kartu memori. PDA dan laptop yang mendukung antarmuka SDIO dapat dihubungkan ke penerima GPS, adaptor Wi-Fi atau Bluetooth, modem, adaptor LAN, pembaca kode batang, radio FM, penerima TV, pembaca otentikasi frekuensi radio, Atau kamera digital dan perangkat lain yang menggunakan SD antarmuka standar.
