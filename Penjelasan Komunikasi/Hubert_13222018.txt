@@ -1,0 +1,7 @@
+// 1. Vcs merupakan sistem yang merubahan perubahan pada source code salah satu contohnya adalah git
+// 2. untuk menginisiasi repo pada git digunakan command (git init) pada folder, untuk melihat perubahan gunakan ($ git status),
+// untuk menambahkan perubahan gunakan ($ git add) dan untuk melihat transcript history gunakan ($ git log)
+// 3. GitHub adalah layanan cloud untuk menyimpan dan mengelola project / repo git. untuk membuat repo klik tanda +, untuk membuat file baru 
+// klik commit new file untuk menyimpan file tersebut. untuk mengedit file gunakan tombol pensil
+// 4. Fork melakukan duplikat pada repo utama dan dilakukan pull request untuk melakukan kontribusi
+// 5. gitignore digunakan untuk menyembunyikan folder yang tidak diinginkan
