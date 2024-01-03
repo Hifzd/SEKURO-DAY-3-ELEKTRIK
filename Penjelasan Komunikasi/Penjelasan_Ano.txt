@@ -1,0 +1,4 @@
+Komunikasi antar programmer di github dilakukan melalui beberapa tahapan. Pertama-tama, dibuat sebuah repo utama/master untuk sebuah proyek. Kemudian, ketika perubahan akan dilakukan, programmer mengambil data kode dari repo utama ke komputernya. Lalu, dilakukan perubahan dan penambahan kode. Setelah selesai, kode ditambahkan kembali ke repositori. Bisa langsung ditambahkan ke repository utama maupun membuat cabang repository baru. Setelah sudah benar-benar yakin, kode yang baru di commit. Setelah commit, perubahan sudah terupdate di repo.
+
+Progammer lain yang mengakses repo akan melihat pembaruan tersebut. Bila dirasa perubahan yang baru jelek, versi lama dari repo dapat diakses pada menu history
+
