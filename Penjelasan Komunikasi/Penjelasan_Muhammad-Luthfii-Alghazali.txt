@@ -1,0 +1,50 @@
+JENIS KOMUNIKASI
+Ada tiga macam jenis komunikasi:
+1. Simplex
+Komunikasi simplex adalah komunikasi satu jalur dan satu arah dari device Transmitter ke device Receiver. Oleh karena itu, Device Receiver tidak dapat mengirimkan data ke Transmitter.
+2. Half-Duplex
+Komunikasi Half-Duplex adalah komunikasi satu jalur dan dua arah dari dua buah device. Peran kedua device pada komunikasi ini bisa berubah. Namun, karena hanya ada satu jalur, pengiriman data dengan arah yang berbeda akan dilakukan secara bergantian. Dengan begitu, komunikasi pengiriman dan penerimaan tidak dapat dilaksanakan pada waktu yang sama. 
+3. Full-Duplex
+Komunikasi Full-Duplex adalah komunikasi dua jalur dan dua arah dari dua buah device. Karena ada dua jalur, kedua device memiliki jalur transmitter dan receiver masing-masing. Dengan begitu, proses pengiriman dan penerimaan dapat dilaksanakan pada waktu yang sama pada jalur masing masing. 
+
+Pemilihan ketiga jenis komunikasi ini tergantung pada keperluan perangkat. komunikasi simplex cocok pada perangkat komunikasi satu arah dan membutuhkan kecepatan tinggi. Komunikasi Half-Duplex cocok untuk perangkat komunikasi dua arah tanpa memerlukan kecepatan tinggi. Komunikasi Full-Duplex cocok pada perangkat komunikasi dua arah dan membutuhkan kecepatan tinggi tetapi akan mengonsumsi daya yang lebih dan memakai pin lebih banyak.
+============================================================================================================================
+PENJELASAN MACAM PROTOKOL KOMUNIKASI
+1. Komunikasi SPI
+Terdapat dua peran yaitu master dan slave. perangkat Master menjadi perangkat yang menentukan kecepatan komunikasi melalui clock. Biasanya Master adalah mikrokontroller dan slavenya adalah perangkat pendukung seperti sensor, display, atau memori. Master bisa berkomunikasi dengan lebih dari satu slave.
+Komunikasi SPI adalah komunikasi Full-Duplex sehingga komunikasi dua arah dilakukan secara bersamaan sehingga tidak perlu adanya start/stop bit.
+Komunikasi SPI lebih cepat dibandingkan I2C
+Ada 4 pin dalam SPI:
+-MOSI: jalur pengiriman data dari master
+-MISO: jalur pengiriman data dari slave
+-SCLCK: pin pengatur clock komunikasi
+-SS/CS: pin untuk menentukan master ingin berkomunikasi dengan slave yang mana
+
+2. Komunikasi I2C
+Komunikasi I2C adalah komunikasi jenis Half-Duplex karena jalur komunikasinya hanya satu pin namun komunikasi yang dilakukan dapat berbentuk read atau write (dua arah).
+Mirip dengan SPI, komunikasi I2C juga memiliki peran master dan slave. I2C juga bisa menghubungkan master dengan beberapa slave dengan format datanya.
+Format data I2C mirip dengan UART. Urutan format datanya sebagai berikut.
+Start bit -> Adress Frame(7-10 bit) -> Read/Write bit -> ACK/NACK bit -> DataFrame 1 -> ACK/NACK bit -> DataFrame 2 -> ACK/NACK bit -> ... -> ACK/NACK bit -> Stop bit
+Dengan adanya Adress Frame, I2C bisa berkomunikasi dengan beberapa slave karena setiap slave memiliki adress yang berbeda.
+Perbedaannya dengan SPI adalah kecepatan komunikasi I2C lebih rendah karena harus ada start/stop bit dan I2C hanya menggunakan dua pin:
+-SDA: Serial data
+-SCL: Serial clock
+
+3. Komunikasi UART (Universal Asynchronous Receiver Transmitter)
+Komunikasi UART bisa menjadi Half-Duplex atau Full-Duplex. Namun, UART hanya bisa berkomunikasi antara dua perangkat saja. Komunikasi UART ini sering juga disebut serial communication oleh para pengguna Arduino.
+Kecepatan komunikasi UART dapat diatur dengan mengatur Baud Rate dari kedua device dengan catatan baud rate kedua device harus sama. Baud rate memiliki satuan bps atau bit per second.
+Uniknya komunikasi UART adalah tidak menggunakan clock. Sehingga, untuk menandakan kapan harus membaca data, format data yang dikirim bergantung pada durasi kondisi High atau Low pin Tx. Untuk lebih mengerti akan konsep tersebut, perhatikan format data UART di bawah ini.
+Start bit -> Data bit -> Parity bit -> Stop Bit (pin TX ketika tidak berkomunikasi akan default ke high)
+Start bit: untuk memulai, Tx akan menjadi low untuk 1 hitungan
+Stop bit: untuk menghentikan pembacaan data, TX akan menjadi High untuk 2 hitungan atau lebih
+Komunikasi UART hanya menggunakan 2 atau 3 pin tergantung apakah komunikasinya ingin Full-Duplex atau Half-Duplex:
+-TX: pin transmitter atau pengirim data
+-RX: pin receiver atau penerima data
+-GND: Ground
+
+4. CAN BUS (Controlled Area Network bus)
+CAN BUS adalah komunikasi Half-Duplex. CAN BUS adalah konfigurasi perangkat standar pada kendaraan. Pada konfigurasi CAN BUS, mikrokontroller dan perangkat yang ada pada kendaraan dapat berkomunikasi tanpa adanya komputer host. sehingga komunikasinya dapat dilakukan secara langsung antar perangkat dengan mikrokontroller.
+Kelebihan CAN BUS ini adalah komunikasi antar beberapa perangkat yang seharusnya memiliki jalurnya masing masing dengan tiap perangkat, dapat dilakukan melalui satu jalur bus yang sama. Sehingga, wiring dari semua perangkat menjadi lebih simpel. Untuk visualisasi lebih lanjutnya dapat dilihat pada file lampiran.
+Oleh karena hal tersebut, tentunya akan ada format data tertentu yang disebut CAN Com. Potongan data akan diawali dengan frame start, kemudian dilanjutkan dengan identifier atau alamat, lalu dilanjutkan dengan data yang dikirimkan, lalu diakhiri oleh frame end. format tersebut dapat dilihat pada lampiran.
+Berikut juga video youtube dari channel TechVedas yang dapat menjelaskan COM CAN dengan lebih lengkap 
+https://www.youtube.com/watch?app=desktop&v=xYqv3aopYUM
