@@ -1,0 +1,47 @@
+Jenis Komunikasi
+- Simplex: komunikasi satu arah
+- Duplex: komunikasi dua arah
+	- Half Duplex: komunikasi dua arah yang dilakukan secara bergantian
+	- Full Duplex: komunikasi dua arah yang dilakukan secara bersamaan
+
+Master and Slave
+Master: yang berkomunikasi kepada slaves (berupa mikrokontroller atau processor)
+Slaves: yang menerima komunikasi dari master (berupa sensor atau perihal)
+
+I2C (Inter-Integrated Circuit)
+I2C adalah multi-transfer/multi-slave bus serial dua kabel (serial data line dan serial clock line) yang menggunakan 3.3 V atau 5 V. I2C digunakan untuk mentransfer informasi antara bus dan perangkat. I2C sering dipakai pada rangkaian yang mementingkan harga pembuatan yang murah.
+Kelebihan : 
+- murah
+- memerlukan 2 kabel
+- dapat berkomunikasi dengan banyak slaves karena dapat mengenali alamat slaves yang dipakai
+
+SPI (Serial Peripheral Interface)
+SPI adalah bus serial sinkron yang menggunakan 3 - 4 kabel. Setiap kabel dapat mengirim dan menerima pesan secara independen, dan dapat disinkronkan satu sama lain. SPI digunakan karena fungsi perangkat kerasnya yang kuat.
+Jenis SPI adalah:
+- SCLK: Serial Clock
+- MOSI: Main Out Sub In / Master Output Slave Input
+- MISO: Main In Sub Out / Master Input Slave Output
+- CS: Chip Select (memilih slave)
+Kelebihan : 
+- Tidak perlu menggunakan start dan stop bit
+- Dapat melakukan full duplex
+- Lebih cepat dibandingkan I2C
+
+UART (Universal Asynchronous Reception and Transmission)
+UART adalah protokol komunikasi serial sederhana yang memungkinkan host berkomunikasi dengan perangkat tambahan. UART mendukung komunikasi simplex, half duplex, dan full duplex. UART memiliki dua jalur data, satu untuk mengirim (TX) dan satu lagi untuk menerima (RX), yang digunakan untuk berkomunikasi melalui pin digital 0, pin digital 1. Umumnya arduino memakai cara berkomunikasi ini.
+
+CAN (Controller Area Network)
+CAN adalah standar bus kendaraan yang kuat yang dirancang untuk memungkinkan mikrokontroler dan perangkat berkomunikasi dengan aplikasi satu sama lain tanpa komputer host. CAN ini berkomunikasi secara half-duplex.
+
+I2S
+I2S adalah standar bus yang dipakai untuk transmisi antara perangkat audio.
+I2S menggunakan 3 kabel:
+- Serial Clock SCLK
+- Frame Clock LRCK
+- Data Serial SDATA
+
+GPIO
+GPIO digunakan untuk menambah fungsi perangkat jika jumlah I/O tidak mencukupi. Fungsi dapat berupa input atau output. Produk GPIO Maxim mencakup GPIO 8-port hingga 28-port, menyediakan output push-pull atau output open-drain. Tersedia dalam paket QFN 3mm x 3mm miniatur.
+
+SDIO
+SDIO digunakan untuk menambah perangkat yang mendukung SDIO. PDA dan laptop yang mendukung antarmuka SDIO dapat dihubungkan ke penerima GPS, adaptor Wi-Fi atau Bluetooth, modem, adaptor LAN, pembaca kode batang, radio FM, penerima TV, pembaca otentikasi frekuensi radio, atau kamera digital dan perangkat lain yang menggunakan SD antarmuka standar.
