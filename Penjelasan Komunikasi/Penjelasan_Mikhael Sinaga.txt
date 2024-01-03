@@ -1,0 +1,47 @@
+Macam-macam Komunikasi
+Nama : Mikhael Anacta Jogi Sinaga
+NIM : 16523156
+
+1. Komunikasi I2C
+Komunikasi I2C adalah metode komunikasi serial yang memungkinkan berbagai perangkat elektronik saling berinteraksi dengan menggunakan dua
+kabel: 
+- SDA (Serial Data Line)
+- SCL (Serial Clock Line)
+Dalam konteks robotika, I2C digunakan untuk menghubungkan berbagai sensor, aktuator, dan modul kontrol ke otak robot, seperti mikrokontroler atau mikroprosesor. 
+Contohnya : Menghubungkan sensor jarak, sensor suhu, dan modul motor ke microprossesor. 
+Dengan I2C, informasi dapat ditransfer secara efisien antar perangkat dan memungkinkan robot untuk mengumpulkan data dari sensor untuk mengontrol aktuator dengan presisi. Komunikasi I2C memungkinkan pengembangan robot efisien dan lebih responsif dalam berbagai situasi.
+
+2. Komunikasi SPI
+Komunikasi SPI (Serial Peripheral Interface) adalah protokol komunikasi serial yang memungkinkan pertukaran data antar mikrokontroler dengan perangkat lain,  seperti sensor, memori, atau modul komunikasi. Protokol ini menggunakan tiga sinyal utama: 
+- MOSI (Master Out Slave In) untuk mentransmisikan data dari master ke slave 
+- MISO (Master In Slave Out) untuk mentransmisikan data dari slave ke master
+- SCK (Serial Clock) untuk mengatur kecepatan transfer data
+Contohnya : Sebuah robot yang menggunakan sensor gyroscope atau accelerometer untuk mengukur posisi atau percepatan dapat menggunakan komunikasi SPI untuk mengirimkan dan menerima data antara mikrokontroler sebagai otak robot dan sensor. SPI memungkinkan transfer data yang cepat dan efisien, mendukung pengembangan robot yang responsif dan akurat dalam melakukan tugasnya.
+
+3. Komunikasi UART
+Komunikasi UART (Universal Asynchronous Receiver-Transmitter) adalah metode komunikasi serial yang memungkinkan transfer data bit per bit antara perangkat-perangkat elektronik. Protokol ini menggunakan dua kabel :  
+- Transmisi (TX) 
+- Penerimaan (RX).
+Dalam bidang robotika, UART sering digunakan untuk menghubungkan komponen-komponen seperti mikrokontroler, sensor, atau modul ke perangkat lain. 
+Contohnya :  Menghubungkan mikrokontroler robot dengan modul Bluetooth yang memungkinkan komunikasi nirkabel dengan perangkat luar seperti smartphone atau komputer. Komunikasi UART memungkinkan pengiriman dan penerimaan data secara asinkron antar perangkat dan mendukung interaksi yang efisien dalam sistem robotika.
+
+4. Komunikasi CAN
+Komunikasi Controller Area Network (CAN) adalah protokol yang memerlukan pertukaran data antar perangkat dalam jaringan. 
+Contohnya : 
+- Robot pengelas otomatis di pabrik mobil menggunakan komunikasi CAN untuk mengintegrasikan sensor-sensor yang mendeteksi posisi dan sudut dengan kontroler robot untuk mengatur pergerakan dan presisi pengelasan. Dengan kemampuan mentransfer data secara cepat, protokol ini memungkinkan robot untuk beroperasi dengan akurasi tinggi di sekitar lingkungan yang penuh dengan mesin bergerak dan gangguan listrik.
+- Dalam kendaraan, CAN memfasilitasi komunikasi antara berbagai sistem seperti sistem rem anti terkunci (ABS), sistem kontrol mesin, dan sistem navigasi. CAN memungkinkan pertukaran informasi yang terkoordinasi di antara berbagai komponen kendaraan, memastikan performa optimal.
+
+MACAM KOMUNIKASI LAINNYA 
+1. Ethernet: Digunakan dalam jaringan komputer untuk mentransfer data antara perangkat-perangkat dalam jaringan lokal. Ini menjadi dasar utama bagi internet yang kita gunakan sehari-hari.
+
+2. Bluetooth: Memungkinkan perangkat-perangkat seperti headphone, speaker, keyboard, dan perangkat seluler untuk berkomunikasi satu sama lain dalam jarak pendek.
+
+3. Wi-Fi: Memungkinkan koneksi nirkabel ke jaringan lokal atau internet dalam jarak yang lebih luas dibandingkan dengan Bluetooth. Digunakan secara luas untuk menghubungkan perangkat seperti komputer, smartphone, dan perangkat IoT ke internet.
+
+4. Zigbee: Digunakan dalam jaringan rumah pintar atau Internet of Things (IoT) untuk mengontrol perangkat-perangkat seperti lampu, thermostat, atau peralatan rumah tangga lainnya.
+
+5. LoRaWAN: Digunakan dalam jaringan jarak jauh untuk IoT, memungkinkan transfer data yang efisien dalam jarak yang jauh dengan konsumsi daya yang rendah.
+
+6. Modbus: Digunakan dalam sistem otomasi industri untuk pertukaran informasi antara perangkat-perangkat seperti sensor, aktuator, dan PLC (Programmable Logic Controller).
+
+7. MQTT: Digunakan dalam skenario di mana perangkat IoT perlu berkomunikasi dengan server atau antar-perangkat IoT lainnya.
