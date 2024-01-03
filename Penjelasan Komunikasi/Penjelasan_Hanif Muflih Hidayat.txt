@@ -1,0 +1,31 @@
+komunikasi
+simplex
+1 arah komunikasi dimana transmitter mengirimkan informasi ke receiver
+half-duplex
+2 arah komunikasi, perangkat dapat menerima informasi atau mengirim informasi yamg dilakukann secara bergantian(tidak bersamaan)
+full-duplex
+2 arah komunikasi, perangkat memiliki transmitter dan receiver yang dapat digunakan secara bersamaan
+
+komunikasi SPI(Serial Peripheral Interface)
+pada SPI terdapat hubungan master dan slave. master adalah perangkat pengendali (umumnya mikrokontroler) sedangkan slave adalah perangkat yang menerima instruksi dari master (sensor, display, maupun chip)
+kelebihan :
+1. data dapat ditransfer tanpa interupsi
+2. pemisahan MOSI dan MISO memungkinkan pengiriman data dari master dan slave secara bersamaan
+3. kecepatan transfer data cenderung lebih tinggi dari I2C
+pin SPI:
+-MOSI (master output/slave input) = mengirim data dari master
+-MISO (master input/slave output) = mengirim data dari slave
+-SCLK (clock) = sumber clock
+-SS/CS (slave select/chip select)
+
+komunikasi I2C(Inter-Integrated Circuit)
+juga terdapat hubungan master dan slave, juga memungkinkan komunikasi dengan slave yang jumlahnya lebih dari 1. Komunikasi ini menggunakan 2 kabel saja, yaitu:
+-SDA = serial data
+-SCL = serial clock
+pengiriman data ditandai dengan bit start(mulai) dan bit stop(akhir), diantara mulai dan akhir terdapat address frame sebagai alamat dari slave yang dituju dan data frame yang panjangnya selalu 8 bits
+
+komunikasi UART(Universal Asynchronous Receiver/Transmitter)
+memungkinkan komunikasi serial asinkron dengan kecepatan yang dapat dikonfigurasi. Dalam komunikasi serial, data ditransfer setiap bit-nya menggunakan 1 jalur/kabel. UART dapat menggunakan half-duplex ataupun full-duplex
+
+CAN-bus(Controller Area Network bus)
+bus yang memungkinkan mikrokontroler dan perangkat untuk berkomunikasi tanpe menggunakan host dan beroperasi dalam half-duplex
