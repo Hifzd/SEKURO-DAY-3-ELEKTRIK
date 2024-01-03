@@ -1,0 +1,31 @@
+I2C (Inter-Integrated Circuit)
+Tujuan: Digunakan untuk menghubungkan berbagai komponen dalam suatu sistem, seperti sensor, memori, dan perangkat lainnya.
+Karakteristik:
+Komunikasi serial dengan dua saluran (SCL - Serial Clock dan SDA - Serial Data).
+Master-slave architecture, di mana satu perangkat bertindak sebagai master yang mengontrol alur komunikasi.
+Setiap perangkat memiliki alamat unik.
+Mendukung transfer data dalam bentuk byte.
+
+SPI (Serial Peripheral Interface)
+Tujuan: Digunakan untuk menghubungkan mikrokontroler dengan berbagai perangkat peripheral, seperti sensor, display, dan memori.
+Karakteristik:
+Komunikasi serial dengan empat sinyal utama (SCLK - Serial Clock, MOSI - Master Out Slave In, MISO - Master In Slave Out, dan SS/CS - Slave Select/Chip Select).
+Tidak memiliki standar format pesan, bergantung pada konfigurasi master dan slave.
+Dapat mendukung koneksi poin ke banyak perangkat (multi-slave).
+Bisa beroperasi dalam mode half-duplex atau full-duplex.
+
+UART (Universal Asynchronous Receiver-Transmitter)
+Tujuan: Digunakan untuk mentransfer data serial antara perangkat, terutama untuk komunikasi jarak pendek.
+Karakteristik:
+Komunikasi asinkron (tidak ada clock bersama).
+Terdiri dari dua sinyal utama (TX - Transmit dan RX - Receive).
+Baud rate menentukan kecepatan komunikasi.
+Tidak ada master/slave, semua perangkat dapat berkomunikasi satu sama lain.
+
+CAN (Controller Area Network):
+Tujuan: Dirancang khusus untuk komunikasi dalam lingkungan yang memerlukan keandalan tinggi dan latensi rendah, seperti di mobil untuk menghubungkan berbagai sistem kendaraan.
+Karakteristik:
+Komunikasi serial dengan dua saluran (CAN High dan CAN Low).
+Menggunakan protokol non-blocking, yang berarti setiap perangkat dapat mengirim pesan kapan saja tanpa menunggu izin.
+Didesain untuk keandalan tinggi dengan deteksi kesalahan dan mekanisme pemulihan.
+Mendukung penggunaan dalam sistem multi-master dengan keamanan yang baik.
