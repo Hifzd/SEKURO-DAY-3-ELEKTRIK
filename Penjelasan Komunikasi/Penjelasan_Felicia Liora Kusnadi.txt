@@ -1,0 +1,23 @@
+MODUL 3
+MACAM-MACAM KOMUNIKASI BUS
+
+a. Inter-Integrated Circuit (I2C)
+I2C adalah komunikasi serial dua arah yang menggunakan dua saluran dalam mengirim dan menerima data. Data pada sistem ini akan dibawa oleh dua saluran, yaitu serial clock (SCL) dan serial data (SDA). Dalam pengoperasiannya dengan sebuah piranti, dikenal sebutan Master untuk piranti yang memulai dan mengakhiri proses transfer data serta sebutan Slave untuk piranti yang dituju Master. Mulainya proses transfer atau sinyal start didefinisikan dengan perubahan tegangan SDA dari 1 menjadi 0 saat SCL 1, sedangkan akhir dari proses transfer atau sinyal stop didefinisikan dengan perubahan tegangan SDA dari 0 menjadi 1 saat SCL 1. Setelah data sampai di Slave, muncul sinyal baru yang disebut ACK (Acknowledge) yang didefinisikan dengan SDA bertegangan 0 selama siklus clock ke 9.
+
+b. Inter-IC Sound Bus (I2S)
+I2S merupakan sistem yang dirancang untuk proses transmisi data audio (STB, DVD, MP3, dan lainnya) antar perangkat audio digital. Sistem ini terdiri atas 3-kabel, yaitu jam dan data, saluran kiri, dan saluran kanan. Terdapat 3 sinyal utama, yaitu serial clock (SCLK) atau bit clock (BCLK), frame clock (LRCK) atau WS untuk memindahkan data dari saluran kiri yang ditandai dengan LRCK 1 ke saluran kanan LRCK 0, serta data serial (SDATA) atau data audio yang diekspresikan dalam pelengkap berpasangan. Meskipun namanya mirip, terdapat perbedaan antara I2S dengan I2C yaitu pada kecepatan transfer data dan fitur. I2C tidak berfokus pada kecepatan transfer data yang tinggi, sedangkan I2S dirancang untuk proses transfer data digital jenis tertentu sehingga kecepatan sangat penting.
+
+c. Serial Peripheral Interface (SPI)
+SPI merupakan salah satu protokol komunikasi dengan sistem kerja mirip I2C, yaitu memiliki peranti yang berperan sebagai Master dan Slave. Transmisi data dalam SPI dilakukan berdasarkan shift register dari Master dan Slave dimana masing-masing memiliki umumnya 8 bit shift. Sistem ini memiliki 3 sampai 4 kabel dengan port berkecepatan tinggi, dan melakukan pengiriman dan penerimaan secara independen. SPI memiliki 4 baris, yaitu serial clock line (SCK), master input / slave output line (MISO), master output / slave input line (MOSI), serta sinyal pemilihan chip (CS), dan 3 jenis sinyal, yaotu serial clock (SCLK), serial data output (SDO), dan serial data input (SDI). Pemasangan port SPI bergantung pada perangkat yang diimplementasikan, contoh jika ingin perangkat master-slave, maka port yang dibutuhkan adalah port output (SDO) dan port input (SDI). Jika hanya perangakat master, maka hanya diperlukan port output. Sedangkan jika hanya ingin pernagkat pendukung, maka hanya dibutuhkan port input.
+
+d. Universal Asynchronous Reception and Transmission (UART)
+UART adalah komunikasi untuk transfer data serial antar perangkat elektronik secara bit per bit melalui koneksi sautu perangkat keras (hardware) sebagai perantara. UART memiliki dua kabel, yaitu transmisi (TX) dan penerima (RX). Protokol ini mampu melakukan proses transfer data secara asinkron, yaitu tidak memerlukan sinyal clock tambahan.
+
+e. Controller Area Network (CAN)
+CAN adalah protokol komunikasi yang digunakan dalam lingkungan keandalan tinggi, contohnya kendaran bermotor, sistem kontrol industri, dan aplikasi tertentu. Transmisi data CAN dirancang khusus agar bisa mengatasi keadaan tinggi atau rentan dengan gangguan elektromagnetik. Sistem yang digunakan adalah message-based protocol yang memprioritaskan dan mampu mengidentifikasi pesan tertentu serta sistem multi-master dimana input dan output data bisa berasal dari multi-device sehingga CAN dianggap lebih fleksibel dan responsif. Transmisi data dalam CAN menerapkan bit arbitration yang mampu menangani tabrakan data saat transmisi dengan mengutamakan perangkat yang diprioritaskan.
+
+f. General Purpose Input Output (GPIO)
+GPIO terdapat pada mikrokontroler yang berfungsi sebagai perangkat untuk input dan output antara perangkat lunak dan perangkat keras. Pin GPIO mampu membaca sinyal dari perangkat keras eksternal serta mengirimkan sinyal kepada perangkat keras eksternal.
+
+g. Secure Digital Input Output (SDIO)
+SDIO memiliki fungsi kurang lebih sama seperti GPIO namun terdapat pada perangakt penyimpanan, yaitu kartu memori Secure Digital (SD), dan memiliki kemampuan transfer data cepat. SDIO memungkinkan SD card untuk bisa berkomunikasi atau mengirim sinyal dengan perangkat lain, contohnya GPS, kamera, WiFi, Bluetooth, dan lainnya.
