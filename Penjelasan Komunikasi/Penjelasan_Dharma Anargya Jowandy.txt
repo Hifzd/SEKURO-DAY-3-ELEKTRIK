@@ -1,0 +1,117 @@
+Beberapa Jenis Komunikasi Berdasarkan :
+
+1.	ARAH KOMUNIKASI
+
+1.1 Simplex
+Komunikasi Satu arah dimana satu pengirim data dan satu penerima data
+
+1.2 Half dupleks
+Komunikasi yang dapat berjalan dua arah namun tidak dilakukan pada saat yang bersamaan melainkan secara bergantian antara penerima (receiver) dan pengirim (transmitter) karena hanya terdapat satu jalur.
+
+1.3 Full Duplex
+Komnikasi Dua Arah yang dapat Mengirim (transmit) dan Menerima (receive) data secara bersamaan karena saluran dibagi menjadi dua jalur.
+
+2.	Berdasarkan serial atau paralel
+
+2.1 Komunikasi Serial
+
+2.1.1 SPI (Serial Peripheral Interface)
+Secara sederhana SPI merupakan komunikasi full duplex yang terdapat hubungan master-slave. Pada dasarnya perangkat master berperan mengendalikan clock pada komunikasi dan berupa microcontroler sedangkan slave biasanya berupa peripheral. 
+
+Bus SPI standard terdiri dari empat baris yaitu :
+•	SCK (Serial Clock Line)
+•	MISO (Master Input/Slave Output)
+•	MOSI (Master Output/Slave Input)
+•	CS (chip Select)
+Kelebihan SPI:
+•	Ini lebih cepat daripada serial asinkron
+•	Perangkat keras penerima dapat berupa register geser sederhana
+•	Ini mendukung banyak periferal
+
+Kekurangan SPI:
+•	Ini membutuhkan lebih banyak jalur sinyal (kabel) dibandingkan metode komunikasi lainnya
+•	Komunikasi harus didefinisikan dengan baik terlebih dahulu (Anda tidak dapat mengirim data dalam jumlah acak kapan pun Anda mau)
+•	Pengontrol harus mengontrol semua komunikasi (periferal tidak dapat berbicara langsung satu sama lain)
+•	Biasanya memerlukan jalur CS terpisah untuk setiap periferal, yang dapat menjadi masalah jika diperlukan banyak periferal.
+
+2.1.2 I2C( inter Integrated Circuit)
+Komunikasi serial dua arah yang juga terdapat hubungan master slave dan memungkinkan komunikasi dengan jumlah slave yang lebih banyak
+Bus I2C menggunakan 2 kabel untuk mentransfer informasi antar bus dan perangkat yaitu:
+•	SDA (Serial Data) sebagai saluran data
+•	SCL (Serial Cock) sebagai penyelaras data antara master dan slave
+
+Kelebihan:
+•	Hanya memerlukan 2 saluran/bus
+•	Komunikasi bisa dilakukan dengan lebih dari 2 perangkat elektronika dalam 2 bus dan untuk membedakan setiap slave digunakan pengalamatan yang berbeda-beda.
+•	Terdapat hubungan master dan slave dalam setiap komunikasi. Proses pertukaran data sepenuhnya diatur oleh master.
+Kekurangan 
+•	Kompleksitas perangkat keras meningkat ketika jumlah perangkat master/slave lebih banyak dalam rangkaian.
+•	komunikasi setengah dupleks.
+•	Protokol dikelola oleh tumpukan perangkat lunak. Hal ini meningkatkan overhead pemrosesan pada µP dan µC.
+
+2.1.3 UART (Universal Asynchronous Reception and Transmission)
+Metode komunikasi serial yang memungkinkan dua komponen perangkat yang berbeda untuk berinteraksi satu sama lain tanpa clock. UART memungkinkan komunikasi serial asinkron dengan kecepatan yang dapat di konfigurasi 
+
+UART menggunakan 2 kabel yaitu:
+•	Satu kabel untuk mentransmisikan data yang disebut dengan pin TX
+•	Satu Kabel untuk Menerima data yang disebut dengan pin RX
+
+Kelebihan UART
+•	Tidak ada sinyal clock
+•	Memiliki bit paritas untuk mengoreksi error
+•	Struktur paket data dapat dimodifikasi selama kedua sisi dioptimalkan untuk itu.
+•	Hanya dua kabel yang digunakan.
+
+Kekurangan UART
+•	Ukuran data frame dibatasi tidak lebih dari 9 bit
+•	Tidak mendukung banyak master system atau slave
+•	Setiap baud rate UART harus berada dalam jarak 10 persen.
+
+2.2 Komunikasi Paralel:
+
+1.	Port Paralel: Digunakan secara tradisional untuk menghubungkan printer dan perangkat lainnya.
+2.	Antarmuka Paralel: Sering digunakan untuk transfer data berkecepatan tinggi antara perangkat.
+
+3.	Berdasarkan media penghantar
+
+3.1 menggunakan media / kabel termasuk fiber optik
+
+3.2 Komunikasi Nirkabel:
+1.	Bluetooth: Memungkinkan komunikasi nirkabel jarak pendek antara perangkat.
+2.	Wi-Fi: Memungkinkan jaringan lokal nirkabel dan akses internet.
+3.	RFID (Identifikasi Frekuensi Radio): Menggunakan gelombang radio untuk mengidentifikasi dan melacak objek
+
+4.	Extended :
+
+4.1 CAN (controller Area Network)
+Standar bus kendaraan yang memungkinkan mikrokontroler dan perangkat untuk berkomunikasi tanpa komputer host. CAN dirancang sebagai pertukaran informasi antara berbagai perangkat kontrol elektronik Ecu dalam dunia otomotif 
+
+Keuntungan Menggunakan Can Bus
+•	Standar bus CAN diterima secara luas dan digunakan di hampir semua kendaraan dan banyak mesin. Berikut keuntungan dari menggunakan Can Bus adalah:
+•	Sederhana dan Biaya Rendah : ECU berkomunikasi melalui sistem CAN tunggal alih-alih melalui jalur sinyal analog kompleks langsung – mengurangi kesalahan, berat, kabel, dan biaya. CAN chipset sudah tersedia dan terjangkau.
+•	Sepenuhnya Terpusat : bus CAN menyediakan satu titik masuk untuk berkomunikasi dengan semua ECU jaringan – memungkinkan diagnostik pusat, pencatatan data, dan konfigurasi.
+•	Sangat Kuat : sistem ini kuat terhadap gangguan listrik dan interferensi elektromagnetik – ideal untuk aplikasi keselamatan kritis (misalnya kendaraan)
+•	Efisien : Frame CAN diprioritaskan berdasarkan nomor ID. Data prioritas utama mendapat akses bus langsung, tanpa menyebabkan interupsi pada frame lainnya.
+•	Mengurangi Berat Kendaraan : dengan menghilangkan kilometer kabel listrik yang sangat terisolasi dan beratnya dari kendaraan.
+•	Penerapan Mudah : standar yang terbukti dengan ekosistem pendukung yang kaya.
+•	Tahan terhadap EMI : ini menjadikan CAN ideal untuk aplikasi kritis pada kendaraan.
+
+4.2 SDIO
+Antar muka ekspansi tipe SD yang dapat dihubungkan ke kertu SD serta ke perangkat lain yang mendukung antar muka SDIO. PDA dan Laptop yang mendukung antar muka SDIO dapat dihubungkan ke penerima GPS, adaptor Wi-Fi atau bluetooth, modem, adaptor LAN, atau perangkat ain yang menggukan SD standar. Perbedaan penting antara spesifikasi kartu SDIO dan SD adalah penambahan standar kecepatan rendah untuk mendukung kemampuan I/O kecepatan rendah dengan pengeluaran perangkat keras yang minimal. Kartu SDIO hanya pembutuhkan SPI dan mode transmisi SD 1-bit
+
+4.3 GPIO (Generap Purpose Input Output)
+Bus expander yang menggunakan antarmuka standar industri I2C, SMBus atau SPI untuk menyederhanakan peluasan port I/O. PIO dapat menyediakan fungsi kontol dan pemantauan tambahan ketika mikrokontroler atau chipset tidak memiliki cukup port I/O atau ketika sistem perlu menggunakan komunikasi atau kontrol serial jara jauh
+
+4.4 I2S
+Standar bus yang digunakan untuk transmisi data audio antar perangkat audio digital. I2s digunakan untuk mengirimkan sinyal audio seperti pada STB, DVD, MP3. 
+
+I2S memiliki 3 sinyal :
+•	Serial Clock (SLCK)
+•	Frame Clock (LRCK)
+•	Data Serial (SDATA)
+
+4.5 USB (Universal Serial Bus):
+•	Standar yang banyak digunakan untuk menghubungkan berbagai periferal ke komputer dan perangkat lainnya.
+
+4.6 Ethernet:
+•	Memungkinkan komunikasi kabel melalui jaringan area lokal (LAN) dan internet.
