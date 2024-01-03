@@ -1,0 +1,46 @@
+Penjelasan Mengenai Protokol Komunikasi dalam Robotika
+Oleh: Glody Marcello Adrinov Sitorus / 16523910
+
+PROTOKOL KOMUNIKASI
+  Protokol komunikasi sendiri dapat kita pahami sebagai suatu sistem yang digunakan oleh berbagai perangkat robot untuk melakukan interaksi satu sama lain. Dengan menggunakan sistem seperti ini, berbagai hal kompleks menjadi dapat dieksekusi dengan adanya pertukaran informasi dari satu perangkat ke yang lain
+  Dalam dunia robotika, terdapat berbagai macam protokol komunikasi yang dapat diimplementasikan, antara lain sebagai berikut.
+
+SPI (Serial Peripheral Interface)
+  Merupakan protokol komunikasi yang dapat membuat mikrokontroler berkomunikasi dengan jalur komunikasi serial. Ciri khas dari protokol komunikasi ini adalah adanya dua jenis perangkat yang berperan sebagai Master dan Slave. Master sebagai pengatur proses komunikasi dan pengirim sinyal, sementara Slave menjadi penerima sinyal tersebut.
+  Terdapat empat jalur komunikasi, yaitu MOSI (Master Out Slave In), MISO (Master In Slave Out), SCLK (Serial Clock), dan SS/CS (Slave Select/Chip Select)
+Cara kerjanya adalah pertama perangkat Master akan memilih perangkat yang akan menjadi Slave lalu mengirim sinyal SS/CS. Master akan memberikan data melalui MOSI dan nantinya akan membaca data dari MISO. Kemudian, SCLK digunakan untuk mencatat waktu sinkronisasi antara kedua perangkat.
+  Keuntungan dari SPI adalah kecepatan komunikasi yang relatif tinggi, adanya dukungan yang memungkinkan satu Master memiliki berbagai Slave, dan juga sinkronisasi data yang baik. Kelemahannya sendiri yaitu terbilang memerlukan jalur yang relatif cukup banyak.
+
+I2C (Inter-Integrated Circuit)
+  Merupakan protokol komunikasi yang bersifat integrated sehingga dapat melibatkan banyak komponen robot mulai dari sensor, mikrokontroler, dll. Protokol ini sendiri cukup banyak digunakan karena cukup sederhana dan dapat digunakan berbagai komponen sekaligus.
+  Terdapat dua jalur utama dalam I2C, yaitu SDA (Serial Data) dan juga SCL (Serial Clock). SDA dapat digunakan untuk melakukan transmisi data, dan SCL berfungsi untuk memberi clock signal yang gunanya untuk mengatur kecepatan dan proses sinkronisasi.
+  Salah satu keunikan dari I2C adalah adanya mekanisme ACK yang dapat memastikan setiap byte data dapat diterima dengan baik, serta setiap perangkat nantinya akan memiliki alamat unik sehingga meminimalisir kesalahan. Kelebihan dari I2C adalah komunikasi ini bersifat bus multi-master, sehingga memungkinkan berbagai komponen bekerja satu sama lain. Protokol ini dapat diaplikasikan ke dalam sensor, aktuator, hingga mikrokontroler robot.
+
+UART (Universal Asynchronous Receiver-Transmitter)
+  Merupakan protokol komunikasi yang bersifat cukup sederhana namun memungkinkan terjadinya proses pertukaran informasi secara asinkron antara komponen-komponen yang terhubung.
+ UART menggunakan dua jalur utama untuk komunikasi, yaitu TX (Transmitter) dan RX (Reciever) yang berfungsi untuk mengirim dan menerima data. Sifat dari protokol komunikasi ini yaitu asinkron, sehingga clock signal yang terjadi secara bersamaan tidak ada dalam protokol ini. Sebagai konsekuensinya, diperlukan adanya kesamaan kecepatan transmisi (baud rate) terlebih dahulu antara kedua perangkat. Proses pertukaran informasi sendiri dilakukan dalam bentuk data frame, yang awalnya menggunakan Start Bit dan akhirnya Stop Bit yang berfungsi untuk memberitahu kapan pengiriman data dimulai dan selesai.
+  Kelebihan dari UART yaitu mudah diatur karena jalurnya yang hanya dua minimal, sehingga cocok untuk komunikasi yang tidak terlalu berjarak jauh. Namun, kekurangannya terletak pada tidak adanya mekanisme pendeteksian kesalahan dan juga cukup rentan pada noise sepanjang jalur komunikasi. Secara umum, prosesnya berjalan seperti ini: dimulai dari penentuan baud rate, pembuatan data frame, TX mengirimkan data, dan RX menerima data.
+
+I2S (Inter-IC Sound)
+  Merupakan protokol komunikasi yang secara khusus digunakan untuk mengirim data berupa audio. Jenis komunikasi ini umumnya digunakan untuk perangkat yang berhubungan dengan audio seperti mikrofon ataupun speaker.
+  Terdapat beberapa jalur yang digunakan dalam I2S, yaitu SD (Serial Data), SCK (Serial Clock), dan WS (World Select). Dalam proses pengirimannya, data audio akan diubah dulu ke dalam bentuk data frame. Dalam protokol komunikasi ini juga digunakan mekanisme seperti baud rate yang ditentukan oleh SCK. Format pengirimannya sendiri dapat dalam bentuk 16-bit ataupun 24-bit. Selain itu, terdapat juga mekanisme seperti Master dan Slave.
+  Kelebihan protokol komunikasi ini adalah dapat dilakukannya transmisi audio kualitas tinggi, kemampuan menghandle audio yang bersifat stereo, serta kecocokan pada aplikasi yang menggunakan audio processing secara real time.
+
+GPIO (General Purpose Input/Output)
+  Merupakan protokol komunikasi yang dapat mengatur komponennya untuk bersifat sebagai input ataupun output, sehingga memungkinkan komponen berinteraksi dengan lebih fleksibel. Untuk menggunakannya dapat memakai produk GPIO yang diconnect ke mikrokontroler, lalu disetting apakah akan dikonfigurasi sebagai input atau output.
+ Dalam fungsinya sebagai input, pin GPIO yang telah terpasang dapat digunakan untuk menjadi pencatat input dari komponen eksternal seperti sensor. Ketika menjadi output, pin GPIO ini dapat dialihfungsikan unuk mengeluarkan perintah eksekusi kepada komponen yang lain. 
+  GPIO memiliki kelebihan fleksibilitas karena kemampuannya yang serbaguna dan mampu mengendalikan komponen eksternal pula, namun terbatas karena jumlah pin yang tersedia cukup minim. Dalam robotika sendiri GPIO dapat digunakan untuk melakukan handling terhadap sensor, motor, ataupun komponen eksternal lainnya.
+
+SDIO (Secure Digital Input/Output)
+  Merupakan protokol komunikasi yang berfungsi untuk menghubungkan mikrokontroler dengan kartu SD sehingga menghasilkan fungsi-fungsi input/output tambahan. SDIO bersifat sebagai ekstensi dari kartu SD yang tersedia dan menggunakan jalur tambahan pada kartu SD yang dapat digunakan sebagai jalur input maupun output. Namun, jalur ini harus dikonfigurasi terlebih dahulu sebelum akan lanjut digunakan.
+  Dengan menggunakan SDIO, akan ada fungsi tambahan yang tersedia seperti akses memori langsung, fungsi interrupt, hingga kecepatan transmisi data yang tinggi. Penggunaannya di robotika sendiri dapat terpakai ketika ingin menghubungkan robot ke perangkat eksternal seperti Wi-Fi ataupun Bluetooth. Meskipun memampukan robot melakukan konektivitas yang fleksibel, proses konfigurasinya terbilang cukup sulit.
+
+CAN (Controller Area Network)
+  Merupakan protokol komunikasi yang memungkinkan komunikasi antar perangkat dalam suatu sistem terdistribusi berjalan tanpa adanya computer host. Topologi bersifat bus dalam sistem ini membuat pertukaran informasi berjalan dengan lebih mudah.
+  Umumnya, penggunaan CAN dapat dilihat pada suatu jaringan yang menjalankan transmisi data antar perangkat dengan kecepatan yang tinggi. Datanya sendiri terkirim dalam bentuk data frame yang nantinya akan dikirim dan diterima oleh perangkat yang terintegrasi pada bus. Salah satu mekanisme yang terdapat dalam CAN adalah bit arbitration, dimana intervensi data akibat transmisi data secara bersamaan dapat ditangani, dengan cara mendahulukan perangkat dengan alamat prioritas yang lebih tinggi.
+  Protokol komunikasi CAN sering digunakan dalam robotika dimana dibutuhkan respons cepat dan koordinasi yang baik antar perangkat dan biasanya diimplementasikan dalam sensor, aktuator, ataupun mikrokontroler.
+
+Modbus
+  Merupakan protokol komunikasi yang digunakan sebagai media pertukaran data antar perangkat dalam suatu sistem.
+  Terdapat dua tipe komunikasi dalam Modbus, antara lain Modbus RTU (Remote Terminal Unit) berbasis serial, dan Modbus TCP (Transmission Control Protocol) berbasis Ethernet. Mekanisme Master-Slave juga diimplementasikan dalam protokol komunikasi ini. Dalam Modbus terdapat fungsi-fungsi seperti menulis data, membaca data, hingga kontrol perangkat. 
+  Kelebihan penggunaan Modbus adalah sistemnya yang sederhana dan dapat kompatibel dengan berbagai perangkat, menjadikannya fleksibel dan juga digunakan pada banyak komponen robot.
