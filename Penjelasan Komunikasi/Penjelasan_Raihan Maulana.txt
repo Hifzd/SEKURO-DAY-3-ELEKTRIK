@@ -1,0 +1,12 @@
+Macam-macam komunikasi:
+1. Simplex
+Merupakan komunikasi satu arah. Maka, dalam komunikasi jenis Simplex hanya terdapat satu transmitter (pengirim) dan satu receiver (penerima) yang terlibat, dimana peran keduanya irriversibel; tidak dapat ditukar.
+Contoh perangkat elektronik dengan sistem komunikasi Simplex yaitu radio dan televisi.
+
+2. Half-Duplex
+Berbeda dengan komunikasi Simplex, Half-Duplex merupakan jenis komunikasi yang terjadi secara dua arah, artinya setiap subjek dapat menjadi transmitter maupun receiver. Namun, peran tersebut hanya dapat terjadi dalam waktu yang tidak bersamaan, atau harus dilakukan secara bergantian.
+Contoh perangkat elektronik dengan sistem komunikasi Half-Duplex yaitu intercom dan walkie-talkie.
+
+3. Full Duplex
+Sistem komunikasi ini kedua perangkat dapat menjadi transmitter maupun receiver, secara bersamaan.
+Contohnya telefon seluler dengan teknologi Global System for Mobile Communication (GSM).
