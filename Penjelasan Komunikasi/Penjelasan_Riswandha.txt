@@ -1,0 +1,33 @@
+1. I2C (Inter-Integrated Circuit):
+    Deskripsi: 
+    Protokol ini dirancang untuk komunikasi antara IC (Integrated Circuit) di dalam sebuah perangkat elektronik. I2C menggunakan dua saluran komunikasi (SDA dan SCL) dan mendukung komunikasi multi-master dan multi-slave.
+    Kegunaan: 
+    Digunakan untuk menghubungkan berbagai perangkat dalam sebuah sistem, seperti sensor, EEPROM, atau LCD. 
+2. SPI (Serial Peripheral Interface):
+    Deskripsi: 
+    SPI adalah protokol sinkron yang menggunakan empat saluran komunikasi, yaitu MOSI (Master Out Slave In), MISO (Master In Slave Out), SCLK (Serial Clock), dan SS (Slave Select). SPI mendukung komunikasi full-duplex dan biasanya digunakan untuk mentransfer data dengan kecepatan tinggi.
+    Kegunaan: 
+    Sering digunakan untuk menghubungkan mikrokontroler dengan perangkat-perangkat seperti flash memory, sensor, dan display.
+3. UART (Universal Asynchronous Receiver/Transmitter):
+    Deskripsi: 
+    UART adalah protokol komunikasi asinkron yang menggunakan dua kabel (TX dan RX) untuk mentransfer data. Data dikirim secara serial, dan tidak ada clock bersama seperti pada I2C atau SPI.
+    Kegunaan: 
+    Paling umum digunakan untuk komunikasi antara perangkat mikrokontroler dan perangkat eksternal, seperti komputer, sensor, atau modul radio.
+4. CAN (Controller Area Network):
+    Deskripsi: 
+    CAN adalah protokol komunikasi seriel yang dikembangkan khusus untuk digunakan dalam lingkungan kendaraan bermotor. CAN mendukung komunikasi multi-master dan memiliki tingkat ketahanan tinggi terhadap gangguan elektromagnetik.
+    Kegunaan: 
+    Umumnya digunakan dalam kendaraan bermotor untuk menghubungkan berbagai kontrol dan sensor, seperti mesin kontrol, sistem rem, dan sensor kecepatan.
+5. I2S (Inter-IC Sound):
+    Deskripsi: I2S adalah protokol komunikasi yang digunakan untuk mentransfer data audio digital antara perangkat audio, seperti mikrofon, DAC (Digital-to-Analog Converter), dan DSP (Digital Signal Processor). I2S menggunakan tiga jalur utama: bit clock (BCLK), word clock (WCLK), dan data line (DIN dan DOUT).
+    Kegunaan: Umumnya digunakan dalam perangkat audio digital, seperti ponsel pintar, perangkat audio rumah, dan pengeras suara.
+6. GPIO (General Purpose Input/Output):
+    Deskripsi:
+    GPIO adalah antarmuka umum pada mikrokontroler atau perangkat semikonduktor yang memungkinkan pengguna untuk mengatur pin sebagai input atau output. Pin GPIO dapat digunakan untuk berbagai tujuan, termasuk pembacaan sinyal digital, pengendalian LED, dan interaksi dengan perangkat luar lainnya.
+    Kegunaan: 
+    GPIO digunakan untuk mengontrol dan berinteraksi dengan berbagai perangkat dan modul eksternal dalam mikrokontroler atau sistem tertanam.
+7. SDIO (Secure Digital Input/Output):
+    Deskripsi: 
+    SDIO adalah antarmuka yang memungkinkan perangkat untuk berkomunikasi dengan kartu memori Secure Digital (SD) menggunakan protokol input/output. SDIO digunakan untuk mengirim dan menerima data dengan kecepatan tinggi melalui kartu SD.
+    Kegunaan: 
+    Biasanya digunakan pada perangkat seperti kamera digital, ponsel pintar, dan perangkat lain yang menggunakan kartu memori SD untuk penyimpanan eksternal atau transfer data.
