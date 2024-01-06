@@ -1,0 +1,49 @@
+Nama/NIM = Abu Dzar Al-Ghifari/16523058
+Tanggal = 6 Januari 2024
+TUGAS DAY 3 ELEKRIK SEKURO 2024
+
+KOMUNIKASI DALAM ROBOTIKA
+komunikasi dalam robotika adalah suatu aspek penting dimana berbagai 
+komponen bekerja sama dalam bertukar informasi atau data untuk menentukan
+langkah selanjutnya dan mencapai suatu tujuan.
+
+Terdapat 3 jenis komunikasi dalam robotika yaitu 
+1. simplex
+    komunikasi satu arah dari transmitter kepada receiver.
+2. half-duplex
+    komunikasi dua arah dengan kedua sisi bergantian mengambil 
+    peran sebagai transmitter atau receiver.
+3. full duplex
+    komunikasi dua arah dengan kedua sisi memiliki peran receiver 
+    dan transmiter secara bersamaan sehingga dapat mengirim dan 
+    menerima informasi secara bersamaan.
+
+Macam macam komunikasi dalam robotika :
+1. SPI (serial peripheral interface)
+    dalam spi digunakan hubungan master dan slave. master berperan dalam 
+    mengatur clock. biasanya komponen master adalah mikrokontroller dan
+    slave adalah sensor, display, dll. pada SPI terdapat 4 pin yang 
+    berfungsi untuk : mengirim data dari master, mengirim data dari slave,
+                      mengatur clock, dan memilih slave.
+    kelebihan : memungkinkan komunikasi full duplex dan kecepatan 
+                pengiriman yang cukup tinggi.
+2. I2C (inter-integrated circuit)
+    komunikasi i2c juga memiliki master dan slave, namum i2c hanya memiliki
+    2 pin saja yang berfungsi untuk pertukaran data antara slave-master dan 
+    mengatur clock. pada komunikasi i2c terdapat start dan stop bit yang 
+    mengatur kapan mulai dan selesai mengirim data dan juga terdapat address
+    frame yang berisi alamat dari slave yg dituju.
+    kelebihan : memungkinkan komunikasi dengan slave lebih dari satu karena
+                masing2 slave memiliki address unik sendiri.
+3. UART (Universal Asynchronous Receiver-Transmitter)
+    uart adalah komunikasi serial antara perangkat ke perangkat. data 
+    dikirim secara serial melalui satu jalur/kabel bit demi bit. terdapat 
+    dua jalur yaitu TX (mengirim) dan RX (menerima).
+    kelebihan : memungkinkan komunikasi serial dengan kecepatan yang dapat
+                di konfigurasikan.
+4. CAN-bus (controller area network)
+    biasa digunakan dalam otomotik, CAN-bus adalah standar bus kendaraan
+    yang memungkinan sebuah komunikasi terjadi tanpa perangkat komputer host.
+    Can-bus beroperasi dengan sistem half-duplex.
+    kelebihan : dapat digunakan juga dalam bidang lain seperti otomasi industri
+                dan peralatan medis.
