@@ -1,0 +1,23 @@
+1. I2C (Inter-Integrated Circuit)
+Komunikasi serial synchron 2 arah antara IC/chip.
+Hanya memerlukan 2 jalur: jalur data (SDA) dan jalur clock (SCL).
+Cocok digunakan untuk jarak dekat dan kecepatan menengah.
+Contoh penggunaan: komunikasi antar sensor, mikrokontroler dengan modul LCD/LED.
+
+2. SPI (Serial Peripheral Interface)
+Komunikasi serial synchron dengan kecepatan tinggi antar IC/chip.
+Memerlukan 4 jalur: MOSI, MISO, CLK, SS.
+Banyak digunakan untuk komunikasi mikrokontroler dengan modul lain.
+Kecepatan transfer data tinggi.
+
+3. UART (Universal Asynchronous Receiver-Transmitter)
+Komunikasi serial asynchron / tidak synchron clock.
+Hanya memerlukan 2 jalur: Tx dan Rx.
+Sering digunakan untuk komunikasi data antar mikrokontroler atau komputer.
+Memungkinkan komunikasi jarak jauh.
+
+4. CAN (Controller Area Network)
+Digunakan dalam otomotif untuk komunikasi antar mikrokontroler.
+Memungkinkan transfer data dengan kecepatan tinggi pada jarak yang cukup jauh.
+Tahan terhadap noise.
+Mendukung sistem real-time.
