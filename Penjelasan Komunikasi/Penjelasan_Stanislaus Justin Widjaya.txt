@@ -21,3 +21,7 @@ MOSI untuk mengirim data dari master
 MISO untuk mengirim data dari slave
 SCLK untuk clock
 SS/CS untuk menentukan slave
+
+Komunikasi I2C juga terdapat hubungan master dan slave, namun bedanya dengan SPI yaitu I2C hanya butuh 2 pin yaitu SDA dan SCL. I2C hnaya membutuhkan 2 kabel. I2C perlu start bit dan stop bit lalu diantar 2 bit ini terdapat bit-bit tertentu seperti address frame dan data frame. start bit dan stop bit menandakan mulai dan akhir dari pengiriman data. Adress frame merupakan alamat atau lokasi dari slave. Data frame dikirim melalui start bit, address frame, dan stop bit.
+
+UART yaitu 
