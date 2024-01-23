@@ -1,2 +1,23 @@
 Isi penjelasan kalian disini gess
 Jangan lupa untuk merubah judul file ini menjadi Penjelasan_[Nama].txt yaaa (tanpa [])
+
+Nama: Stanislaus Justin Widjaya
+NIM: 16523102
+
+Tugas Penjelasan Komunikasi
+
+Terdapat 3 macam komunikasi yaitu Simplex, Half-Duplex, dan Full-Duplex
+
+Simplex bekerja hanya searah yaitu hanya ada pengirim(Transmitter) dan penerima (Receiver). Mereka tidak dapat bergantian. Jadi yang pengirim hanya bisa mengirim dan penerima hanya menerima.
+
+Half-Duplex bisa bekerja bergantian yaitu bisa jadi pengirim lalu jadi penerima. Namun bukan berarti bisa sekaligus bisa dua-duanya, tetapi mereka bekerja bergantian jadi yang awalnya pengirim kemudian bergantian menjadi penerima dan yang awalnya penerima menjadi pengirim.
+
+Full-Duplex bisa mengirim dan menerima sekaligus karena mereka memiliki beda jalur. Jadi bisa sekaligus menerima dan juga bisa mengirim.
+
+Lalu terdapat komunikasi SPI, I2C, UART, dan CAN
+
+Komunikasi SPI terdapat hubungan master dan slave. Jadi Master itu yang sebagai pengontrol yang biasanya master itu berupa mikrokontroler. Sedangkan slave yang menerima instruksi dari master. Slave bisa berupa sensor, display, ataupun chip memori.  Kelebihan dari SPI yaitu tidak ada intrupsi pengiriman data, Full-Duplex, dan tranfer data lebih cepat daripada I2C. Terdapat 4 pin pada SPI yaitu MOSI, MISO, SCLK, dan SS/CS
+MOSI untuk mengirim data dari master
+MISO untuk mengirim data dari slave
+SCLK untuk clock
+SS/CS untuk menentukan slave
