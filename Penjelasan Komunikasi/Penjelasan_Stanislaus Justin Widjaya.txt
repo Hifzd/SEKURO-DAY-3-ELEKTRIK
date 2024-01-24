@@ -16,7 +16,7 @@ Full-Duplex bisa mengirim dan menerima sekaligus karena mereka memiliki beda jal
 
 Lalu terdapat komunikasi SPI, I2C, UART, dan CAN
 
-Komunikasi SPI terdapat hubungan master dan slave. Jadi Master itu yang sebagai pengontrol yang biasanya master itu berupa mikrokontroler. Sedangkan slave yang menerima instruksi dari master. Slave bisa berupa sensor, display, ataupun chip memori.  Kelebihan dari SPI yaitu tidak ada intrupsi pengiriman data, Full-Duplex, dan tranfer data lebih cepat daripada I2C. Terdapat 4 pin pada SPI yaitu MOSI, MISO, SCLK, dan SS/CS
+Komunikasi SPI terdapat hubungan master dan slave. Jadi Master itu yang sebagai pengontrol yang biasanya master itu berupa mikrokontroler. Sedangkan slave yang menerima instruksi dari master. Slave bisa berupa sensor, display, ataupun chip memori.  Kelebihan dari SPI yaitu tidak ada intrupsi pengiriman data, Full-Duplex, dan tranfer data lebih cepat daripada I2C. SPI juga banyak digunakan karena fungsi perngkat kerasnya yang kuat. Terdapat 4 pin pada SPI yaitu MOSI, MISO, SCLK, dan SS/CS.
 MOSI untuk mengirim data dari master
 MISO untuk mengirim data dari slave
 SCLK untuk clock
@@ -24,4 +24,10 @@ SS/CS untuk menentukan slave
 
 Komunikasi I2C juga terdapat hubungan master dan slave, namun bedanya dengan SPI yaitu I2C hanya butuh 2 pin yaitu SDA dan SCL. I2C hnaya membutuhkan 2 kabel. I2C perlu start bit dan stop bit lalu diantar 2 bit ini terdapat bit-bit tertentu seperti address frame dan data frame. start bit dan stop bit menandakan mulai dan akhir dari pengiriman data. Adress frame merupakan alamat atau lokasi dari slave. Data frame dikirim melalui start bit, address frame, dan stop bit.
 
-UART yaitu 
+UART yaitu Universal Asynchronous Receiver Transmitter. Komunikasi ini sering dipakai untuk Arduino. Komunikasinya dari perangkat ke perangkat dan cara kerjanya juga mirip seperti I2C yaitu ada bit-bitnya seperti start bit dan stop bit. UART memiliki 2 jalur data yaitu TX untuk mengirim dan RX untuk menerima, yang digunakan untuk berkomunikasi melalui pin digital 0, pind digital 1. UART bisa Half-Duplex dan Full-Duplex.
+
+CAN-Bus yaitu Controller Area Network bus. bus biasanya diapakai dalam otomotif. Jadi CAN bus adalah standar bus kendaraan yang memungkinkan mikrokontroler dan perangkat untuk berkomunikasi tanpa komputer host. CAN bus bisa beroperasi Half-Duplex. CAN adalah protokol berbasis pesan, selain khusus untuk aplikasi otomotif, sekaran CAN juga bisa dipakai pada bidang lain seperti otomatisasi industri dan peralatan medis.
+
+
+
+
