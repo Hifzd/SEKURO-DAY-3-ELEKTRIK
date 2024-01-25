@@ -1,0 +1,21 @@
+Komunikasi Perangkat pada Robotika
+
+1. I2C (Inter Integrated Circuit) Communication 
+Sesuai Namanya, jenis komunikasi ini memungkinkan dua perangkat keras dengan sirkuit terintegrasi berkomunikasi. Komunikasi ini cenderung berjalan
+pada kecepatan sedang sehingga sangat cocok untuk diterapkan pada aliran data mikroprocessor ke sensor atau aktuator dan sebaliknya. Kabel yang digunakan adalah
+SDA dan SCL
+
+2. SPI (Serial Peripheral) Commuication
+SPI memiliki fungsi yang kurang lebih sama dengan I2C, yaitu menghubungkan mikroprocessor ke perangkat peripheral nya seperti sensor dan display. Namun, terdapat
+perbedaan, yaitu SPI dapat melakukan pemindahan data lebih cepat dari komunikasi I2C meskipun membutuhkan lebih banyak kabel.
+
+3. UART (Universal Asynchronous Receiver/Transmitter) Communication
+Komunikasi UART membutuhkan 2 kabel RX dan TX untuk dapat beroprasi. Komunikasi UART juga merupukan poin-to-point komunikasi sehingga cocok diterapkan dalam
+komunikasi Mikrokontroller ke Mekirokontroller atau Mikrokontroller ke Raspberry Pi dan sebaliknya.
+
+4. CAN (Controller Area Network) Communication
+Komnuikasi CAN memungkinkan beberapa perangkat untuk dapat berkomunikasi tanpa adanya host server. Komunikasi ini didesain untuk melakukan pemindahan
+data dalam jumlah yang besar dan pada lingkungan yang ekstrem sehingga cocok diterapkan pada industri otomotif. Namun, pada saat ini penerapan CAN menjadi 
+lebih luas mengingat kemampuan yang diberikannya, salah satunya pada robotika dan otomatisasi.
+
+Source: Modul 3 Elektrikal dan ChatGPT.
