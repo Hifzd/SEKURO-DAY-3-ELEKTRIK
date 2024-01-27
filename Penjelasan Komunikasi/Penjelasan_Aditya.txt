@@ -1,0 +1,5 @@
+I2C (Inter-Integrated Circuit) -> merupakan komunikasi serial dua arah yang dapat menerima dan mengirim data, menggunakan 2 kabel SDA dan SCL untuk mengirim data dari Bus ke perangkat
+Serial Peripheral Interface (SPI) -> merupakan bus antarmuka yang biasa digunakan untuk mengirim data antara mikrokontroler dan periferal kecil seperti register geser, sensor, dan kartu SD.
+UART (Universal Asynchronous Reception and Transmission) -> merupakan protokol komunikasi serial yang memungkinkan host berkomunikasi dengan perangkat tambahan 
+CAN (Controller Area Network) -> merupakan standart bus yang memungkinkan mikrokontroler dan perangkat berkomunikasi dengan aplikasi satu sama lain (tanpa host ataupun komputer)
+Jangan lupa untuk merubah judul file ini menjadi Penjelasan_[Nama].txt yaaa (tanpa [])
