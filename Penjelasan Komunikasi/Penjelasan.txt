@@ -1,2 +1,7 @@
 Isi penjelasan kalian disini gess
-Jangan lupa untuk merubah judul file ini menjadi Penjelasan_[Nama].txt yaaa (tanpa [])
+
+Terdapat beberapa komunikasi:
+1. I2C, adalah protokol komunikasi serial yang digunakan untuk menghubungkan perangkat terintegrasi dalam sebuah sistem elektronik. I2C menggunakan dua kabel (data dan clock) untuk memungkinkan komunikasi antara satu master dan beberapa slave.
+2. SPI, adalah protokol komunikasi serial yang digunakan untuk menghubungkan perangkat periferal ke mikrokontroler. SPI menggunakan empat kabel (data, clock, chip select, dan slave select) untuk memungkinkan komunikasi antara satu master dan beberapa slave.
+3. UART, adalah protokol komunikasi serial yang digunakan untuk menghubungkan perangkat elektronik yang berbeda. UART menggunakan dua kabel (data dan ground) untuk memungkinkan komunikasi antara dua perangkat.
+4. CAN, adalah protokol komunikasi serial yang digunakan untuk menghubungkan perangkat elektronik di kendaraan. CAN menggunakan dua kabel (data dan ground) untuk memungkinkan komunikasi antara dua atau lebih perangkat.
