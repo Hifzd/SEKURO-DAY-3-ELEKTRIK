@@ -1,0 +1,16 @@
+Ada beberapa jenis komunikasi yang umum digunakan dalam sistem mikrokontroler:
+1.	Simplex: Komunikasi satu arah dari Transmitter ke Receiver. Receiver tidak dapat mengirimkan data kembali ke Transmitter. Komunikasi simplex ini cocok untuk komunikasi satu arah dengan kecepatan tinggi.
+2.	Half-Duplex: Komunikasi dua arah, namun hanya satu perangkat dapat mengirimkan data pada satu waktu. Pengiriman data dilakukan bergantian karena hanya ada satu jalur. Komunikasi Half-Duplex cocok untuk komunikasi dua arah tanpa kebutuhan kecepatan tinggi
+3.	Full-Duplex: Komunikasi dua arah di mana kedua perangkat dapat mengirim dan menerima data secara bersamaan menggunakan jalur masing-masing. Full-Duplex cocok untuk komunikasi dua arah dengan kecepatan tinggi, meskipun memerlukan lebih banyak daya dan pin.
+
+
+PROTOKOL KOMUNIKASI YANG UMUM DIGUNAKAN
+1.	SPI (Serial Peripheral Interface): Komunikasi Full-Duplex antara master dan slave, menggunakan jalur pengiriman data (MOSI), jalur penerimaan data (MISO), pin pengatur clock (SCLCK), dan pin untuk menentukan slave (SS/CS).
+SPI dikembangkan oleh PHILIPS, yang menggunakan dua kabel (SDA dan SCL) untuk mentransfer informasi antara perangkat.
+2.	I2C (Inter-Integrated Circuit): Komunikasi jenis Half-Duplex antara master dan slave, menggunakan jalur serial data (SDA) dan jalur serial clock (SCL). I2C memungkinkan komunikasi dengan beberapa slave karena setiap slave memiliki alamat yang berbeda. 12C ini juga merupakan metode bus serial sinkron dengan antarmuka 3 hingga 4 kabel, dan sering digunakan karena kekuatan fungsi perangkat kerasnya.
+3.	UART (Universal Asynchronous Receiver Transmitter): Komunikasi bisa menjadi Half-Duplex atau Full-Duplex antara dua perangkat menggunakan pin transmitter (TX) dan pin receiver (RX). Kecepatan komunikasi ditentukan oleh Baud Rate. UART bisa dibilang protokol komunikasi serial sederhana, yang memungkinkan host berkomunikasi dengan perangkat tambahan melalui transmisi data asinkron dua arah
+4.	CAN BUS (Controlled Area Network bus): adalah standar bus kendaraan yang kuat, digunakan untuk komunikasi antara mikrokontroler dan perangkat aplikasi seperti otomotif dan otomatisasi industri, tanpa keterlibatan komputer host.Komunikasi Half-Duplex yang digunakan dalam kendaraan. Memungkinkan perangkat kendaraan berkomunikasi tanpa komputer host melalui satu jalur bus. Menggunakan format data yang diawali dengan frame start, identifier, data, dan frame end.
+
+Perlu digaris bawahi bahwa masing-masing protokol komunikasi memiliki kelebihan dan kekurangan tergantung pada kebutuhan aplikasi dan sistem yang digunakan.
+
+
